@@ -1,0 +1,32 @@
+<svg width="960" height="420" viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BOTC AI Storyteller architecture">
+  <rect width="960" height="420" fill="#130d0a"/>
+  <text x="480" y="42" text-anchor="middle" fill="#f7d99a" font-size="26" font-family="Arial, sans-serif" font-weight="700">BOTC AI Storyteller Assistant</text>
+  <g font-family="Arial, sans-serif" font-size="15">
+    <rect x="60" y="95" width="220" height="95" rx="16" fill="#2a1710" stroke="#d6ae6a"/>
+    <text x="170" y="130" text-anchor="middle" fill="#fff1c2" font-size="19" font-weight="700">Storyteller UI</text>
+    <text x="170" y="158" text-anchor="middle" fill="#d6c3a0">room → setup → night → vote</text>
+
+    <rect x="60" y="245" width="220" height="95" rx="16" fill="#1b1511" stroke="#9d7b48"/>
+    <text x="170" y="280" text-anchor="middle" fill="#fff1c2" font-size="19" font-weight="700">Player UI</text>
+    <text x="170" y="308" text-anchor="middle" fill="#d6c3a0">seat → identity → messages</text>
+
+    <rect x="370" y="160" width="220" height="110" rx="16" fill="#24130d" stroke="#e2b86f"/>
+    <text x="480" y="198" text-anchor="middle" fill="#fff1c2" font-size="19" font-weight="700">Express + WebSocket</text>
+    <text x="480" y="226" text-anchor="middle" fill="#d6c3a0">authoritative room state</text>
+    <text x="480" y="250" text-anchor="middle" fill="#d6c3a0">storyteller confirmation</text>
+
+    <rect x="680" y="85" width="220" height="90" rx="16" fill="#20140f" stroke="#9d7b48"/>
+    <text x="790" y="120" text-anchor="middle" fill="#fff1c2" font-size="19" font-weight="700">Runtime Data</text>
+    <text x="790" y="148" text-anchor="middle" fill="#d6c3a0">roles → scripts → night order</text>
+
+    <rect x="680" y="245" width="220" height="90" rx="16" fill="#20140f" stroke="#9d7b48"/>
+    <text x="790" y="280" text-anchor="middle" fill="#fff1c2" font-size="19" font-weight="700">AI / Rules</text>
+    <text x="790" y="308" text-anchor="middle" fill="#d6c3a0">draft candidates only</text>
+
+    <path d="M280 142 C330 142 330 196 370 196" stroke="#d6ae6a" stroke-width="3" fill="none" marker-end="url(#a)"/>
+    <path d="M280 292 C335 292 335 235 370 235" stroke="#d6ae6a" stroke-width="3" fill="none" marker-end="url(#a)"/>
+    <path d="M590 192 C625 165 640 130 680 130" stroke="#d6ae6a" stroke-width="3" fill="none" marker-end="url(#a)"/>
+    <path d="M590 238 C630 255 640 290 680 290" stroke="#d6ae6a" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  </g>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#d6ae6a"/></marker></defs>
+</svg>

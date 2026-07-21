@@ -7,6 +7,9 @@ npm-debug.log*
 .botc-room-snapshots/
 .botc-imported-scripts/
 .snapshots/
+public/clocktower-assets/role_icon/*
+!public/clocktower-assets/role_icon/.gitkeep
+public/clocktower-assets/role_icon_board_atlas.png
 docs/game-records/
 docs/import-reports/
 docs/verification-runs/

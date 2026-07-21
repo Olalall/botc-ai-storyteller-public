@@ -1,10 +1,13 @@
 {
-  "schemaVersion": "botc.github-full-upload.v1",
-  "generatedAt": "2026-07-21T07:45:17.537840+00:00",
-  "outputDir": "dist/github-full-project",
-  "zipPath": "dist/botc-ai-storyteller-github-full.zip",
-  "fileCount": 222,
+  "schemaVersion": "botc.github-full-upload.v2",
+  "generatedAt": "2026-07-21T16:35:00+08:00",
+  "outputDir": "dist/repo-polish",
+  "zipPath": "dist/botc-ai-storyteller-public-polished.zip",
+  "fileCount": 144,
   "testsDirectoryRemoved": true,
+  "roleIconsCommitted": false,
+  "roleIconDownloadScript": "scripts/download-botc-icons.mjs",
+  "roleIconCacheDir": "public/clocktower-assets/role_icon",
   "runtimeDataDir": "data/runtime",
   "privacyExcluded": [
     ".env",
@@ -14,11 +17,13 @@
     "room snapshots",
     "generated reports",
     "game records",
-    "backups"
+    "backups",
+    "downloaded role icon cache"
   ],
   "includedTopLevel": [
     ".env.example",
     ".gitignore",
+    "CONTRIBUTING.md",
     "Dockerfile",
     "GITHUB_UPLOAD_CHECKLIST.md",
     "GITHUB_UPLOAD_MANIFEST.json",
@@ -28,6 +33,7 @@
     "data",
     "deploy.sh",
     "docker-compose.yml",
+    "docs",
     "modules",
     "package.json",
     "public",
@@ -35,5 +41,5 @@
     "server.js",
     "start.sh"
   ],
-  "totalBytes": 30500436
+  "totalBytes": 15331669
 }

@@ -1,194 +1,187 @@
 # BOTC AI Storyteller Assistant
 
-> "让每一位说书人都能轻松开局，让每一局血染都充满乐趣。"
+> Unofficial local-first storyteller assistant for **Blood on the Clocktower**.
+> 非官方《血染钟楼》本地说书人辅助工具：开房、座位、发身份、夜晚候选、投票和复盘，都集中在一个浏览器工作台里。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue.svg)](#)
-[![Status](https://img.shields.io/badge/Status-Beta-orange.svg)](#)
+[![Runtime](https://img.shields.io/badge/Runtime-Local%20%2F%20LAN-blue.svg)](#quick-start)
+[![Status](https://img.shields.io/badge/Status-Beta-orange.svg)](#roadmap)
+[![Unofficial](https://img.shields.io/badge/BOTC-Unofficial%20fan%20tool-red.svg)](#legal--ip-notice)
 
-**Blood on the Clocktower（非官方）说书人辅助工具**
+<p align="center">
+  <img src="docs/images/storyteller-desktop.png" alt="Storyteller desktop view" width="78%">
+</p>
 
----
+<p align="center">
+  <img src="docs/images/player-mobile.png" alt="Player mobile view" width="260">
+</p>
 
-## 这是什么？
+## What is this?
 
-一个帮助说书人管理《血染钟楼》游戏的浏览器工具。
+This project is a **local-first storyteller operating desk** for Blood on the Clocktower games.
 
-- 在本地或局域网内快速开局
-- 管理玩家座位、夜晚顺序、提名投票
-- AI 辅助生成复杂角色的行动候选（说书人确认后生效）
-- 玩家在手机上查看自己的身份和公开信息
+It is designed for in-person or LAN groups that want one browser tool to manage:
 
-**不是**第二套魔典，也不是自动规则引擎 —— 所有游戏决策都经过说书人确认。
+- storyteller room creation and player seating;
+- script selection, setup, and identity deal flow;
+- private player identity delivery on phones;
+- night order, player submissions, and storyteller-reviewed candidates;
+- nominations, votes, executions, day/night flow, and game-end review;
+- imported/community scripts with manual review boundaries.
 
-> Blood on the Clocktower 是 Steven Medway 和 The Pandemonium Institute 的商标。本工具为粉丝自制，不属于官方项目。
-
----
+**It is not an official TPI product, not a replacement for the official app, and not a fully autonomous rules engine.**
+AI and rule automation only produce drafts/candidates. Any action that changes authoritative game state remains behind storyteller confirmation.
 
 ## 为什么做这个？
 
-第一次玩血染钟楼是 2024 年初，立刻被这个游戏的魅力吸引了 —— 推理、社交、表演、博弈，每一局都是独一无二的故事。
+《血染钟楼》好玩，但说书人的操作负担很重：座位、发身份、首夜顺序、恶魔伪装、玩家私密信息、提名投票、死亡状态、断线重连、复杂角色判定都会同时挤到说书人面前。
 
-但每次开局都很头疼：
-- 魔典忘带了怎么查夜晚顺序？
-- 7 人局怎么配板？
-- 复杂角色的候选目标总是搞混...
+这个项目的目标不是替代说书人，而是把重复操作和信息整理交给工具，让说书人保留最终裁决权：
 
-作为一个开发者，与其每次手忙脚乱，不如写个工具帮自己。于是有了这个项目。
+> **AI 只起草，规则只建议，说书人最终确认。**
 
-### 迭代历程
+## Highlights / 核心功能
 
-| 版本 | 时间 | 内容 |
-|------|------|------|
-| v0.1 | 2024.3 | 最早的原型，纯前端 HTML |
-| v1.0 | 2024.6 | 添加 WebSocket 多人同步 |
-| v2.0 | 2024.9 | 重构前后端，加入 AI 候选 |
-| v3.0 | 2025.2 | 完全重写 UI，魔典风格 |
-| v4.0 | 2025.8 | 规范化数据，脚本支持 |
-| v5.0 | 2026.1 | AI 自动化增强，稳定版 |
+| Area | What it does |
+| --- | --- |
+| Storyteller desk | Grimoire-style browser UI, room creation, seating, state panel, night/day workflow |
+| Player mobile view | Join by room code, claim seat, receive identity, read private/public information |
+| Setup and deal | Generate setup candidates, confirm setup, send identities, lock setup after deal |
+| Night flow | Night order, role prompts, player submissions, candidate review, manual ruling gates |
+| Day and voting | Nomination, vote tracking, execution confirmation, day/night transition support |
+| Script support | Trouble Brewing, Bad Moon Rising, Sects & Violets, Catfishing, and reviewed imports |
+| AI boundary | AI produces draft candidates only; state changes require storyteller confirmation |
+| Local-first runtime | Runs on one computer; phones/tablets join through LAN URL |
 
-> 如果你在 GitHub 上找到早期版本，可能会困惑 —— 没错，每次都是推倒重来。代码质量不够好，但功能一直在进步。
+## Screenshots
 
----
+More screenshots and notes: [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md)
 
-## 功能特点
+| Storyteller desktop | Player mobile |
+| --- | --- |
+| ![Storyteller desktop](docs/images/storyteller-desktop.png) | ![Player mobile](docs/images/player-mobile.png) |
 
-| 功能 | 说明 |
-|------|------|
-| **说书人端** | 魔典风格界面、夜晚流程管理、提名投票、玩家状态面板 |
-| **玩家端** | 手机/浏览器查看身份、私信系统、公开信息同步 |
-| **AI 辅助** | 复杂角色目标候选，说书人确认后生效 |
-| **脚本支持** | Trouble Brewing、Bad Moon Rising、Sects & Violets、Catfishing |
-| **本地运行** | 无需云服务器，局域网即可开玩 |
-| **数据溯源** | 官方角色数据、社区脚本标注作者来源 |
+## Quick start
 
----
+Requirements:
 
-## 快速开始
-
-### 方式一：命令行
+- Node.js 18+
+- npm
 
 ```bash
-# 克隆项目
-git clone https://github.com/Olalall/botc-ai-storyteller-public.git
-cd botc-ai-storyteller-public
-
-# 安装依赖
 npm install
-
-# 启动
+# npm install runs the optional icon downloader. If it was skipped or failed:
+npm run assets:icons
 npm start
 ```
 
-然后打开浏览器：
+Open:
 
-| 页面 | 地址 |
-|------|------|
-| 说书人端 | http://127.0.0.1:3000/storyteller-v2.html |
-| 玩家端 | http://127.0.0.1:3000/player-v2.html |
+- Storyteller: `http://localhost:3000/storyteller-v2.html`
+- Player: `http://localhost:3000/player-v2.html`
 
-同一局域网的手机或平板访问 `http://<电脑IP>:3000/player-v2.html`
+For LAN play, open the storyteller page on the host computer and let players join the player URL through the host machine's LAN IP.
 
-### 方式二：Docker
+## Role icons and third-party assets
 
-```bash
-docker-compose up -d
-```
-
-### 方式三：下载 Release
-
-在 [Releases](https://github.com/Olalall/botc-ai-storyteller-public/releases) 页面下载打包好的版本，解压后运行即可。
-
----
-
-## 项目结构
-
-```
-├── server.js              # 服务器（Express + WebSocket）
-├── public/
-│   ├── storyteller-v2.html # 说书人界面
-│   ├── player-v2.html      # 玩家界面
-│   ├── css/                # 样式
-│   ├── js/                 # 前端逻辑
-│   └── clocktower-assets/  # 角色图标、背景等素材
-├── modules/
-│   ├── mvp/                # 核心游戏逻辑
-│   └── imported-scripts/   # 社区脚本工具
-└── data/
-    └── runtime/
-        ├── official/       # 官方角色和夜序数据
-        └── scripts/        # 剧本配置
-```
-
----
-
-## 如果对你有帮助
-
-⭐ 如果这个项目对你有帮助，请给我一个 Star！
-
-这对我来说是很大的鼓励，也是让更多人看到这个项目的最好方式。
-
----
-
-## 一起完善
-
-这个项目还有很多可以改进的地方：
-
-- [ ] 更完善的 AI 提示词
-- [ ] 更多社区脚本支持
-- [ ] 更好的移动端体验
-- [ ] 中文本地化文档
-- [ ] 教程视频
-
-如果你也想参与开发，欢迎 Fork 并提交 PR！
+Role icons are **not committed** to this repository. They can be downloaded into a local gitignored runtime cache:
 
 ```bash
-# Fork 后
-git clone https://github.com/YOUR_USERNAME/botc-ai-storyteller-public.git
-cd botc-ai-storyteller-public
-npm install
-npm start  # 开始开发
+npm run assets:icons
 ```
 
-参见 [CONTRIBUTING.md](CONTRIBUTING.md) 了解更多。
+Downloaded files are written to `public/clocktower-assets/role_icon/`. They are not covered by this project's MIT License. See [Third-party notices](docs/THIRD_PARTY_NOTICES.md).
 
----
+## Core workflow
 
-## 致谢
+```mermaid
+flowchart LR
+  A[Create room] --> B[Players join and claim seats]
+  B --> C[Select script]
+  C --> D[Generate setup candidate]
+  D --> E[Storyteller confirms setup]
+  E --> F[Deal identities]
+  F --> G[Night order and submissions]
+  G --> H[Storyteller confirms results]
+  H --> I[Day nominations and votes]
+  I --> J[Execution / no execution]
+  J --> K[Next night or game review]
+```
 
-### 开源项目参考
+## Project docs
 
-- **[bra1n/townsquare](https://github.com/bra1n/townsquare)** — 最早的血染在线工具，启发了我的设计思路
-- **[bjageman/tiny-grimoire](https://github.com/bjageman/tiny-grimoire)** — 简洁的实现方式值得学习
+- [Project overview / 项目说明书](docs/PROJECT_OVERVIEW.md)
+- [Feature guide / 核心功能说明](docs/FEATURES.md)
+- [Screenshots](docs/SCREENSHOTS.md)
+- [GitHub profile copy](docs/GITHUB_PROFILE_COPY.md)
+- [Third-party notices](docs/THIRD_PARTY_NOTICES.md)
 
-### 数据来源
+## Iteration history
 
-- **官方角色数据** — 来自 `release.botc.app`
-- **Catfishing 剧本** — 社区剧本，作者 [Emily](https://www.botcscripts.com/script/3/11.1.1/download)
+The public repo represents an ongoing personal/fan-tool iteration from **November 2025 to July 2026**.
 
-### 感谢
+| Time | Milestone |
+| --- | --- |
+| 2025-11 | Started from offline storyteller pain points: seating, setup, identity delivery, and night flow notes |
+| 2025-12 | Built early browser prototypes and local room/player concepts |
+| 2026-01 | Moved toward Node.js + Express + WebSocket runtime |
+| 2026-03 | Expanded visual grimoire UI and player mobile entry flow |
+| 2026-05 | Added MVP game loop: setup/deal, night/day flow, voting, review boundaries |
+| 2026-06 | Clarified AI as draft-only assistant; added stronger storyteller confirmation gates |
+| 2026-07 | Prepared public package: docs, screenshots, legal notice, privacy cleanup, generated icon cache, and GitHub-facing README |
 
-- 感谢和我一起开局的玩家们 —— 没有你们的测试，就没有这个工具
-- 感谢血染钟楼社区的每一位成员 —— 这个游戏因你们而精彩
-- 感谢 The Pandemonium Institute 创造了这么好玩的游戏
+## Project structure
 
----
+```text
+.
+|-- server.js                  # Express + WebSocket runtime
+|-- public/                    # Storyteller/player browser UI and static assets
+|   |-- storyteller-v2.html
+|   |-- player-v2.html
+|   `-- clocktower-assets/     # Runtime UI assets; role icons download into a gitignored cache
+|-- modules/                   # Game/domain modules
+|-- data/                      # Runtime data, scripts, and knowledge files
+|-- scripts/                   # Local start, icon download, and public-package verification scripts
+|-- docs/                      # Project overview, feature guide, screenshots, notices
+|-- Dockerfile
+|-- docker-compose.yml
+`-- package.json
+```
 
-## License
+## Verification
 
-MIT License，仅覆盖本项目代码。
+```bash
+npm run verify:public-package
+```
 
-**不涵盖** Blood on the Clocktower 的角色、剧本、名称、规则文本、美术等知识产权。
+The verification script starts a local server, checks the storyteller/player pages, validates key data paths, and prints `PUBLIC_PREFLIGHT_GO` when the public package is runnable.
 
-详见 [LICENSE](LICENSE)。
+## Roadmap
 
----
+- Broader real-table playtesting.
+- Cleaner custom script import/review workflow.
+- More structured rules-candidate explanations.
+- More screenshots and short demo videos.
+- Keep role icons as a generated/downloaded local cache instead of committing them to the repo.
+- Stronger separation between source code license and third-party/game IP assets.
 
-<div align="center">
+## Legal & IP notice
 
-**让更多人一起来玩血染钟楼！**
+### Acknowledgements
 
-Blood on the Clocktower is a trademark of Steven Medway and The Pandemonium Institute.
+- [The Pandemonium Institute](https://bloodontheclocktower.com/) — Creators of Blood on the Clocktower.
+- [botc-icons](https://github.com/tomozbot/botc-icons) — Role icons may be downloaded at install/build time for local use in this unofficial fan tool. Downloaded icon files are written to `public/clocktower-assets/role_icon/`, which is gitignored. These icon/art assets remain the copyright of their respective artists and owners; they are **not** covered by this project's MIT license, and this project claims no rights to them.
+- Blood on the Clocktower community script authors and unofficial tool builders whose public work helped shape this fan-tool pattern.
 
-</div>
+### License
+
+This project is licensed under the [MIT License](LICENSE). See also [Third-party notices](docs/THIRD_PARTY_NOTICES.md).
+
+This project's MIT license covers only its own source code and documentation — it grants no rights to any Blood on the Clocktower intellectual property. Character names, ability text, role icons, and associated artwork remain the property of their respective owners.
+
+### Disclaimer
+
+This is an unofficial, fan-made tool, created and distributed free of charge. It is not affiliated with, endorsed by, sponsored by, or licensed by The Pandemonium Institute.
+
+Blood on the Clocktower, its characters, and its associated names and artwork are the property of Steven Medway and The Pandemonium Institute. This project claims no ownership over Blood on the Clocktower intellectual property.

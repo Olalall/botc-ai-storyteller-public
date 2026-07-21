@@ -7,6 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
+    "assets:icons": "node scripts/download-botc-icons.mjs",
+    "postinstall": "node scripts/download-botc-icons.mjs --optional",
     "game:local": "node scripts/start-local-game-session.mjs",
     "verify:public-package": "node scripts/preflight-public-package.mjs"
   },
