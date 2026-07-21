@@ -37,29 +37,53 @@ AI and rule automation only produce drafts/candidates. Any action that changes a
 
 > **AI 只起草，规则只建议，说书人最终确认。**
 
-## Screenshots / 功能演示
+## Screenshots / Core feature demo / 核心功能演示
 
-More screenshots and notes: [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md)
+More screenshots, generation notes, and coverage map: [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md)
 
-| Welcome | Room and seats |
+### Animated overview / GIF 总览
+
+<p align="center">
+  <img src="docs/images/demo-core-flow.gif" alt="Core storyteller flow animated demo" width="82%">
+</p>
+
+### Full core flow / 完整核心流程截图
+
+| Welcome | Main menu |
 | --- | --- |
-| ![Welcome](docs/images/storyteller-welcome.png) | ![Room lobby](docs/images/storyteller-room-lobby.png) |
+| ![Welcome](docs/images/storyteller-welcome.png) | ![Main menu](docs/images/storyteller-main-menu.png) |
 
-| Setup and deal | Send identities |
+| Player seat select | Player waiting room |
+| --- | --- |
+| ![Player seat select](docs/images/player-seat-select.png) | ![Player waiting room](docs/images/player-waiting-room.png) |
+
+| Storyteller room lobby | Script switch |
+| --- | --- |
+| ![Room lobby](docs/images/storyteller-room-lobby.png) | ![Script switch](docs/images/storyteller-script-switch.png) |
+
+| Setup candidate | Deal confirmation |
 | --- | --- |
 | ![Setup and deal](docs/images/storyteller-setup-deal.png) | ![Deal confirmation](docs/images/storyteller-deal-confirm.png) |
 
-| Night flow | Day vote |
+| Player identity receipt | Night flow |
 | --- | --- |
-| ![Night flow](docs/images/storyteller-night-flow.png) | ![Day vote](docs/images/storyteller-day-vote.png) |
+| ![Player identity receipt](docs/images/player-identity-receipt.png) | ![Night flow](docs/images/storyteller-night-flow.png) |
 
-| Role library | AI boundary |
+| Day vote | Role library |
 | --- | --- |
-| ![Role library](docs/images/storyteller-role-library.png) | ![AI boundary](docs/images/storyteller-ai-boundary.png) |
+| ![Day vote](docs/images/storyteller-day-vote.png) | ![Role library](docs/images/storyteller-role-library.png) |
 
-<p align="center">
-  <img src="docs/images/player-mobile.png" alt="Player mobile join view" width="260">
-</p>
+| Private message | Manual storyteller tool |
+| --- | --- |
+| ![Private message](docs/images/storyteller-private-message.png) | ![Manual tool](docs/images/storyteller-manual-tool.png) |
+
+| History log | Game review |
+| --- | --- |
+| ![History log](docs/images/storyteller-history-log.png) | ![Game review](docs/images/storyteller-game-review.png) |
+
+| AI boundary |
+| --- |
+| ![AI boundary](docs/images/storyteller-ai-boundary.png) |
 
 ## Highlights / 核心功能
 

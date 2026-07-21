@@ -1,9 +1,9 @@
 {
   "schemaVersion": "botc.github-full-upload.v2",
-  "generatedAt": "2026-07-21T17:35:00+08:00",
+  "generatedAt": "2026-07-21T18:20:00+08:00",
   "outputDir": "dist/repo-polish",
   "zipPath": "dist/botc-ai-storyteller-public-dynamic-icons.zip",
-  "fileCount": 152,
+  "fileCount": 162,
   "testsDirectoryRemoved": true,
   "roleIconsCommitted": false,
   "roleIconDownloadScript": "scripts/download-botc-icons.mjs",
@@ -42,5 +42,5 @@
     "server.js",
     "start.sh"
   ],
-  "totalBytes": 23977266
+  "totalBytes": 33847958
 }

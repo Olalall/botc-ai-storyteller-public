@@ -30,4 +30,4 @@ unofficial
 
 ## Short release note
 
-Public Beta package with screenshots, clearer README, project overview, feature guide, MIT license boundary, and explicit unofficial fan-tool disclaimer.
+Public Beta package with full core-flow screenshots, GIF overview, clearer README, project overview, feature guide, MIT license boundary, and explicit unofficial fan-tool disclaimer.
