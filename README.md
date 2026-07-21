@@ -1,7 +1,7 @@
 # BOTC AI Storyteller Assistant
 
-> Unofficial local-first storyteller assistant for **Blood on the Clocktower**.
-> 非官方《血染钟楼》本地说书人辅助工具：开房、座位、发身份、夜晚技能结果整理/结算候选、投票和复盘，都集中在一个浏览器工作台里。
+> Unofficial AI-assisted storyteller co-pilot for **Blood on the Clocktower**.
+> 非官方《血染钟楼》AI 说书人副驾驶：开房、座位、发身份、AI 审阅夜晚技能结算候选、风险提示、投票和复盘，都集中在一个浏览器工作台里。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
@@ -15,19 +15,19 @@
 
 ## What is this?
 
-This project is a **local-first storyteller operating desk** for Blood on the Clocktower games.
+This project is a **local-first AI storyteller co-pilot** for Blood on the Clocktower games.
 
 It is designed for in-person or LAN groups that want one browser tool to manage:
 
 - storyteller room creation and player seating;
 - script selection, setup, and identity deal flow;
 - private player identity delivery on phones;
-- night order, player submissions, rule-assisted skill result candidates, and storyteller-reviewed settlement;
+- night order, player submissions, rule-assisted skill result candidates, AI review notes, and storyteller-reviewed settlement;
 - nominations, votes, executions, day/night flow, and game-end review;
 - imported/community scripts with manual review boundaries.
 
 **It is not an official TPI product, not a replacement for the official app, and not a fully autonomous rules engine.**
-AI and rule automation can organize submissions and generate skill-result settlement candidates, but they do not become the final judge. Any action that changes authoritative game state remains behind storyteller confirmation.
+AI is a first-class co-pilot here: it can review rule-generated settlement candidates, draft confirmation copy, summarize risk points, drive AI test players for demos/stress tests, and keep an audit trail. It still does not become the final judge. Any action that changes authoritative game state remains behind storyteller confirmation.
 
 ## 为什么做这个？
 
@@ -36,6 +36,26 @@ AI and rule automation can organize submissions and generate skill-result settle
 这个项目的目标不是替代说书人，而是把重复操作和信息整理交给工具，让说书人保留最终裁决权：
 
 > **AI 只起草，规则只建议，说书人最终确认。**
+
+## AI co-pilot capabilities / AI 核心能力
+
+This project is not just a digital grimoire. The AI layer is designed as a **storyteller co-pilot**:
+
+| AI capability | What it does | Safety boundary |
+| --- | --- | --- |
+| AI-reviewed night settlement | Sends redacted rule-generated candidates to an OpenAI-compatible provider and asks for storyteller-facing `copySuggestion` and `riskSummary` | AI output is draft-only; it is not sent to players and does not mutate state |
+| Risk and edge-case reminder | Highlights possible rule/leakage risks before the storyteller confirms a result | Storyteller can edit, reject, or use manual ruling |
+| AI test players | Fills empty seats, auto-confirms identity receipts, submits deterministic night actions, and supports demo/stress flows | Marked as test-player behavior, not a real-player replacement |
+| Strategy explorer | Generates suggested night targets, nominations, nominators, and votes based on alignment, survival, role profile, and history | Suggestion-only through existing player/storyteller commands |
+| Safe AI control mode | Auto mode can refresh suggestions or summarize storyteller state | High-risk intents such as deal roles, confirm results, send private messages, write logs, or mutate state are blocked |
+| Audit trail | Records provider metadata, redaction summary, downgrade reason, and whether model output was used | Server-side secrets only; player-visible output remains false until storyteller confirmation |
+
+In short:
+
+```text
+AI = co-pilot for review, risk notes, strategy simulation, and draft wording
+Storyteller = final authority for confirmation, rulings, messages, and state changes
+```
 
 ## Screenshots / Core feature demo / 核心功能演示
 
@@ -89,13 +109,14 @@ More screenshots, generation notes, and coverage map: [docs/SCREENSHOTS.md](docs
 
 | Area | What it does |
 | --- | --- |
+| AI storyteller co-pilot | Model-assisted candidate review, risk summaries, draft confirmation copy, AI test players, and safe suggestion mode |
 | Storyteller desk | Grimoire-style browser UI, room creation, seating, state panel, night/day workflow |
 | Player mobile view | Join by room code, claim seat, receive identity, read private/public information |
 | Setup and deal | Generate setup candidates, confirm setup, send identities, lock setup after deal |
-| Night skill settlement | Night order, role prompts, player submissions, automatic candidate settlement, storyteller review, manual ruling gates |
+| Night skill settlement | Night order, role prompts, player submissions, rule result candidates, AI review notes, storyteller review, manual ruling gates |
 | Day and voting | Nomination, vote tracking, execution confirmation, day/night transition support |
 | Role library | Built-in role reference panel with script tabs and local ability-note edits |
-| Rule/AI boundary | Rule automation and AI produce settlement drafts/candidates only; state changes require storyteller confirmation |
+| Rule/AI boundary | Rule automation and AI produce settlement drafts, risk notes, and strategy suggestions only; state changes require storyteller confirmation |
 | Script support | Trouble Brewing, Bad Moon Rising, Sects & Violets, Catfishing, and reviewed imports |
 | Local-first runtime | Runs on one computer; phones/tablets join through LAN URL |
 
@@ -150,6 +171,7 @@ flowchart LR
 ## Project docs
 
 - [Project overview / 项目说明书](docs/PROJECT_OVERVIEW.md)
+- [AI capabilities / AI 能力说明](docs/AI_CAPABILITIES.md)
 - [Feature guide / 核心功能说明](docs/FEATURES.md)
 - [Screenshots](docs/SCREENSHOTS.md)
 - [Human changelog / 给非开发者看的迭代日志](docs/HUMAN_CHANGELOG.md)
@@ -167,7 +189,7 @@ The public repo represents an ongoing personal/fan-tool iteration from **Novembe
 | 2026-01 | Moved toward Node.js + Express + WebSocket runtime |
 | 2026-03 | Expanded visual grimoire UI and player mobile entry flow |
 | 2026-05 | Added MVP game loop: setup/deal, night/day flow, voting, review boundaries |
-| 2026-06 | Clarified AI as draft-only assistant; added stronger storyteller confirmation gates |
+| 2026-06 | Clarified AI as draft-only co-pilot; added provider review, audit boundary, and stronger storyteller confirmation gates |
 | 2026-07 | Prepared public package: docs, screenshots, legal notice, privacy cleanup, generated icon cache, and GitHub-facing README |
 
 ## Project structure
@@ -200,7 +222,7 @@ The verification script starts a local server, checks the storyteller/player pag
 
 - Broader real-table playtesting.
 - Cleaner custom script import/review workflow.
-- More structured skill-result settlement explanations: why a result candidate was generated, what must still be confirmed, and which edge cases need manual ruling.
+- Stronger AI co-pilot explanations: why a result candidate was generated, what AI flagged, what must still be confirmed, and which edge cases need manual ruling.
 - More screenshots and short demo videos.
 - Keep role icons as a generated/downloaded local cache instead of committing them to the repo.
 - Stronger separation between source code license and third-party/game IP assets.

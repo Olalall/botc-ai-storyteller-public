@@ -2,9 +2,9 @@
 
 ## About / 简介
 
-Unofficial local-first storyteller assistant for Blood on the Clocktower: room setup, player mobile view, setup/deal, automatic skill-result settlement candidates, voting, and review.
+Unofficial AI-assisted storyteller co-pilot for Blood on the Clocktower: AI-reviewed night settlement candidates, risk notes, AI test players, player mobile view, voting, and review.
 
-非官方《血染钟楼》本地说书人辅助工具：开房、玩家手机端、配板发身份、夜晚技能结果结算候选、提名投票和复盘。
+非官方《血染钟楼》AI 说书人副驾驶：AI 审阅夜晚结算候选、生成风险提示、驱动测试玩家、支持玩家手机端、提名投票和复盘。
 
 ## Website
 
@@ -30,4 +30,4 @@ unofficial
 
 ## Short release note
 
-Public Beta package with full core-flow screenshots, GIF overview, clearer README, project overview, feature guide, MIT license boundary, and explicit unofficial fan-tool disclaimer.
+Public Beta package with AI co-pilot positioning, AI-reviewed settlement candidates, risk notes, AI test-player demo flows, full screenshots/GIF, MIT license boundary, and explicit unofficial fan-tool disclaimer.

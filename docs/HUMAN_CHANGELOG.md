@@ -1,5 +1,33 @@
 # Human Changelog
 
+## 2026-07-21 — Reposition project around AI storyteller co-pilot
+
+### 大白话总结
+
+这次把项目从“本地说书人工具”重新包装成“AI 说书人副驾驶”。重点不再只是开房、截图和流程，而是突出 AI 能审阅夜晚结算候选、生成风险提示和确认草稿、驱动 AI 测试玩家跑完整流程，并且所有关键动作仍由说书人确认。
+
+### 用户现在能看到什么变化
+
+- README 第一屏文案改成 AI-assisted storyteller co-pilot。
+- README 新增“AI co-pilot capabilities / AI 核心能力”章节。
+- 新增 `docs/AI_CAPABILITIES.md`，单独说明 AI 能力、配置方式、安全边界和推荐宣传文案。
+- `docs/FEATURES.md`、`docs/PROJECT_OVERVIEW.md`、`docs/SCREENSHOTS.md` 都同步强化 AI 副驾驶定位。
+- GitHub 简介文案改成突出 AI-reviewed settlement candidates、risk notes、AI test players。
+
+### Before / After
+
+| Before | After |
+| --- | --- |
+| 看起来像普通本地魔典/流程工具 | 定位成 AI 说书人副驾驶 |
+| AI 只在边界里被动出现 | AI 能力变成 README 第一层卖点 |
+| 主要强调“不能自动裁判” | 同时强调“能审阅、提示、模拟、总结”，但不越权 |
+| 没有单独 AI 说明页 | 新增 AI 能力说明书和推荐宣传文案 |
+
+### 风险和注意
+
+- 没有新增或夸大运行时代码能力；文案基于现有 provider 审阅、AI control mode、AI 测试玩家和策略探索实现。
+- 仍然避免写成“AI 自动裁判”或“无需说书人”。
+
 ## 2026-07-21 — Emphasize automatic skill-result settlement boundary
 
 ### 大白话总结
@@ -57,6 +85,7 @@
 
 - GIF 是由静态截图合成的轻量演示，不代表真实录像；真实对局验收仍需要浏览器 smoke 或线下测试。
 - 这些截图展示的是公开包的核心流程，不等于承诺复杂角色都由系统自动裁决；AI 和规则逻辑仍保持 draft-only / storyteller-confirmed 边界。
+
 ## 2026-07-21 — Public README, screenshots, and IP-risk cleanup
 
 ### 大白话总结

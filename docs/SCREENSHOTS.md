@@ -30,7 +30,7 @@ Covers: welcome → menu → room lobby → script switch → setup/deal → nig
 | `storyteller-manual-tool.png` | Manual storyteller control area for edge cases and human rulings |
 | `storyteller-history-log.png` | Operation/history log for replaying important game events |
 | `storyteller-game-review.png` | Game review / end-of-game review page |
-| `storyteller-ai-boundary.png` | AI assistant panel; AI drafts only, storyteller confirms final state changes |
+| `storyteller-ai-boundary.png` | AI co-pilot panel; AI reviews candidates, summarizes risk, keeps output draft-only, and leaves final state changes to the storyteller |
 
 ## Screenshots
 
@@ -134,7 +134,7 @@ Shows the review area for after-game inspection and recap.
 
 ![AI boundary](images/storyteller-ai-boundary.png)
 
-Shows the AI assistant boundary: AI summarizes and suggests; final execution remains with the storyteller.
+Shows the AI co-pilot boundary: AI can review candidates, produce risk notes and draft wording, drive test/demo flows, and summarize state; final execution remains with the storyteller.
 
 ## Notes
 
