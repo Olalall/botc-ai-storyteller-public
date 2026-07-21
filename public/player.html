@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>血染钟楼 - 玩家端</title>
+  <link rel="icon" href="data:,">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { -webkit-tap-highlight-color: transparent; }
+    body { font-family: 'Noto Serif SC', serif; background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%); }
+    .glass { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); }
+    .glow { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .slide-up { animation: slideUp 0.3s ease-out; }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    i[class*="fa-"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1em;
+      font-style: normal;
+      font-family: inherit;
+    }
+    i[class*="fa-"]::before { line-height: 1; }
+    .fa-book-open::before { content: "书"; }
+    .fa-dungeon::before { content: "房"; }
+    .fa-right-to-bracket::before { content: "入"; }
+    .fa-hourglass-half::before { content: "等"; }
+    .fa-user-secret::before { content: "角"; }
+    .fa-check::before { content: "✓"; }
+    .fa-moon::before { content: "夜"; }
+    .fa-sun::before { content: "昼"; }
+    .fa-bell::before { content: "讯"; }
+    .fa-circle-notch::before { content: "等"; }
+    .fa-wand-magic-sparkles::before { content: "令"; }
+    .fa-users::before { content: "席"; }
+    .fa-heart::before { content: "活"; }
+    .fa-skull::before { content: "亡"; }
+    .fa-beer-mug-empty::before { content: "醉"; }
+    .fa-envelope::before { content: "信"; }
+    .fa-info-circle::before { content: "i"; }
+    .fa-check-circle::before { content: "✓"; }
+    .fa-exclamation-triangle::before { content: "!"; }
+    .fa-times-circle::before { content: "×"; }
+    .fa-circle::before { content: "•"; }
+    .fa-droplet::before { content: "毒"; }
+    button i[class*="fa-"] { display: none; }
+  </style>
+</head>
+<body class="min-h-screen text-white">
+  <div id="app" class="min-h-screen flex flex-col">
+    <!-- 顶部状态栏 -->
+    <header class="glass border-b border-slate-700 px-4 py-3 flex justify-between items-center sticky top-0 z-50">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-book-open text-amber-500"></i>
+        <span class="font-bold text-amber-500">血染钟楼</span>
+      </div>
+      <div id="room-info" class="text-xs text-slate-400 hidden">
+        <span id="current-room"></span>
+      </div>
+    </header>
+
+    <!-- 等待加入界面 -->
+    <div id="join-screen" class="flex-1 flex flex-col items-center justify-center p-6">
+      <div class="w-full max-w-sm">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 bg-gradient-to-br from-amber-900 to-slate-800 rounded-full flex items-center justify-center border-2 border-amber-500 mx-auto mb-4 shadow-lg glow">
+            <i class="fa-solid fa-dungeon text-amber-500 text-3xl"></i>
+          </div>
+          <h1 class="text-2xl font-bold text-amber-500">血染钟楼</h1>
+          <p class="text-slate-500 text-sm mt-2">请输入房间号加入游戏</p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label for="room-input" class="block text-xs text-slate-400 mb-2">房间号</label>
+            <input id="room-input" type="text" maxlength="6"
+              class="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-4 text-center text-2xl font-mono font-bold text-amber-500 focus:border-amber-500 outline-none uppercase"
+              placeholder="ABC123">
+          </div>
+          <div>
+            <label for="seat-input" class="block text-xs text-slate-400 mb-2">座位号</label>
+            <input id="seat-input" type="number" min="1" max="20"
+              class="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-4 text-center text-2xl font-bold text-amber-500 focus:border-amber-500 outline-none"
+              placeholder="1">
+          </div>
+          <button id="btn-join" class="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg transition active:scale-95">
+            <i class="fa-solid fa-right-to-bracket mr-2"></i> 加入游戏
+          </button>
+        </div>
+
+        <p id="join-error" class="text-red-400 text-center mt-4 text-sm hidden"></p>
+      </div>
+    </div>
+
+    <!-- 等待开始界面 -->
+    <div id="waiting-screen" class="flex-1 flex flex-col items-center justify-center p-6 hidden">
+      <div class="text-center mb-8">
+        <i class="fa-solid fa-hourglass-half text-amber-500 text-4xl mb-4 pulse"></i>
+        <h2 class="text-xl font-bold">等待说书人开始...</h2>
+        <p class="text-slate-400 text-sm mt-2">你是 <span id="my-seat" class="text-amber-500 font-bold"></span> 号</p>
+      </div>
+      
+      <div class="w-full max-w-sm">
+        <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+          <h3 class="text-xs text-slate-500 mb-3">已加入的玩家</h3>
+          <div id="player-list" class="space-y-2">
+            <!-- 玩家列表 -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 身份揭示界面 -->
+    <div id="role-reveal" class="flex-1 flex flex-col items-center justify-center p-6 hidden">
+      <div class="w-full max-w-sm slide-up">
+        <!-- 身份卡片 -->
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border-2 border-amber-500 glow mb-6">
+          <div class="text-center mb-4">
+            <div class="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-amber-900 to-slate-800 rounded-full flex items-center justify-center border-2 border-amber-500">
+              <i id="role-icon" class="fa-solid fa-user-secret text-amber-500 text-4xl"></i>
+            </div>
+            <h2 id="my-role" class="text-3xl font-bold text-amber-500 mb-2">---</h2>
+            <p id="role-type" class="text-sm text-slate-400 mb-4">---</p>
+          </div>
+          
+          <div class="bg-slate-950/50 rounded-xl p-4 border border-slate-700">
+            <h3 class="text-xs text-slate-500 mb-2">角色能力</h3>
+            <p id="role-ability" class="text-sm text-slate-300">---</p>
+          </div>
+        </div>
+        
+        <button id="btn-confirm-role" class="w-full bg-amber-600 hover:bg-amber-500 text-white py-3 rounded-xl font-bold shadow-lg transition active:scale-95">
+          <i class="fa-solid fa-check mr-2"></i> 确认身份
+        </button>
+      </div>
+    </div>
+
+    <!-- 游戏进行界面 -->
+    <div id="game-screen" class="flex-1 flex flex-col hidden">
+      <!-- 当前阶段 -->
+      <div class="glass border-b border-slate-700 px-4 py-3">
+        <div class="flex justify-between items-center">
+          <div id="phase-display" class="flex items-center gap-2">
+            <span id="phase-icon" class="text-amber-500"><i class="fa-solid fa-moon"></i></span>
+            <span id="phase-text" class="font-bold text-amber-500">夜间</span>
+          </div>
+          <div id="round-display" class="text-xs text-slate-400">
+            第 <span id="round-num" class="text-amber-500 font-bold">1</span> 夜
+          </div>
+        </div>
+      </div>
+
+      <!-- 通知区域 -->
+      <div id="notification" class="hidden mx-4 mt-4 p-4 bg-amber-900/30 border border-amber-600/50 rounded-xl slide-up">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-bell text-amber-500 mt-1"></i>
+          <div id="notification-content" class="flex-1"></div>
+        </div>
+      </div>
+
+      <!-- 行动区域 -->
+      <div id="action-area" class="flex-1 p-4 overflow-y-auto">
+        <!-- 等待说书人 -->
+        <div id="waiting-message" class="flex flex-col items-center justify-center h-full text-center">
+          <i class="fa-solid fa-circle-notch fa-spin text-amber-500 text-3xl mb-4"></i>
+          <p class="text-slate-400">等待说书人指令...</p>
+        </div>
+
+        <!-- 夜晚行动提示 -->
+        <div id="night-action" class="hidden space-y-4">
+          <!-- 能力卡片 -->
+          <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-5 border border-amber-500/50 glow">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 bg-amber-900/50 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-500 text-xl"></i>
+              </div>
+              <div class="flex-1">
+                <h3 id="action-role-name" class="font-bold text-amber-500 mb-1">你的回合</h3>
+                <p id="action-role-ability" class="text-sm text-slate-400">请使用你的能力</p>
+              </div>
+            </div>
+            
+            <div id="action-inputs" class="space-y-3">
+              <!-- 动态生成 -->
+            </div>
+          </div>
+
+          <button id="btn-submit-action" class="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 rounded-xl font-bold shadow-lg transition active:scale-95">
+            <i class="fa-solid fa-check mr-2"></i> 确认行动
+          </button>
+        </div>
+
+        <!-- 信息展示区 -->
+        <div id="info-display" class="hidden space-y-3">
+          <!-- 动态生成信息卡片 -->
+        </div>
+
+        <!-- 白天信息 -->
+        <div id="day-info" class="hidden">
+          <div class="bg-gradient-to-br from-amber-900/20 to-slate-900 rounded-2xl p-5 border border-amber-500/30 text-center">
+            <i class="fa-solid fa-sun text-amber-500 text-3xl mb-3"></i>
+            <h3 class="font-bold text-amber-500 mb-2">白天时间</h3>
+            <p class="text-slate-400 text-sm">与其他玩家讨论并找出恶魔</p>
+          </div>
+        </div>
+
+        <!-- 玩家状态 -->
+        <div id="player-status" class="mt-6">
+          <h3 class="text-xs text-slate-500 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-users"></i> 存活玩家
+          </h3>
+          <div id="alive-players" class="grid grid-cols-5 gap-2">
+            <!-- 动态生成 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部状态 -->
+      <div class="glass border-t border-slate-700 px-4 py-2">
+        <div class="flex justify-center gap-4 text-xs">
+          <span id="status-alive" class="text-emerald-500"><i class="fa-solid fa-heart"></i> 存活</span>
+          <span id="status-poisoned" class="text-purple-500 hidden"><i class="fa-solid fa-skull"></i> 中毒</span>
+          <span id="status-drunk" class="text-orange-500 hidden"><i class="fa-solid fa-beer-mug-empty"></i> 醉酒</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新消息弹窗 -->
+    <div id="message-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+      <div class="bg-slate-800 rounded-2xl p-6 max-w-sm mx-4 border border-amber-500/50 glow slide-up">
+        <div class="text-center mb-4">
+          <i class="fa-solid fa-envelope text-amber-500 text-2xl mb-2"></i>
+          <h3 class="font-bold text-amber-500">新消息</h3>
+        </div>
+        <p id="message-content" class="text-slate-300 text-center mb-4"></p>
+        <button id="btn-close-message" class="w-full bg-amber-600 hover:bg-amber-500 text-white py-2 rounded-xl font-bold">
+          知道了
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ROLE_INFO = {
+      "占卜师": { type: "镇民", desc: "每夜选择两名玩家，得知其中是否有恶魔" },
+      "共情者": { type: "镇民", desc: "每夜得知邻座有多少邪恶玩家" },
+      "厨师": { type: "镇民", desc: "首夜得知邻座有多少邪恶玩家（0-2）" },
+      "调查员": { type: "镇民", desc: "首夜得知两名玩家和一个爪牙身份" },
+      "赌徒": { type: "镇民", desc: "每夜猜测一名玩家身份，猜错则死亡" },
+      "舞蛇人": { type: "镇民", desc: "每夜选择一名玩家，若为恶魔则互换身份" },
+      "僧侣": { type: "镇民", desc: "每夜选择一名玩家，该玩家不会死亡" },
+      "筑梦师": { type: "镇民", desc: "每夜选择一名玩家，得知一好一坏两个身份" },
+      "祖母": { type: "镇民", desc: "首夜得知一个好人身份，孙子死亡则祖母死亡" },
+      "艺术家": { type: "镇民", desc: "白天可指定两名玩家，当晚得知他们是否死亡" },
+      "隐士": { type: "外来者", desc: "可能被判定为邪恶、爪牙或恶魔" },
+      "酒鬼": { type: "外来者", desc: "你以为自己是镇民，实际没有特殊能力" },
+      "陌客": { type: "外来者", desc: "可能被判定为邪恶" },
+      "投毒者": { type: "爪牙", desc: "每夜选择一名玩家，该玩家次日中符" },
+      "寡妇": { type: "爪牙", desc: "首夜看魔典并选择一名玩家中毒" },
+      "间谍": { type: "爪牙", desc: "看魔典，可能被判定为好人" },
+      "小恶魔": { type: "恶魔", desc: "每夜选择一名玩家杀死，自杀后传给爪牙" },
+      "方古": { type: "恶魔", desc: "每夜选择一名玩家杀死，杀错人变善良" },
+      "亡骨魔": { type: "恶魔", desc: "每夜选择一名玩家杀死，杀爪牙保留能力" }
+    };
+
+    const TYPE_COLORS = {
+      "镇民": "text-emerald-400",
+      "外来者": "text-blue-400",
+      "爪牙": "text-orange-400",
+      "恶魔": "text-red-500"
+    };
+
+    let ws = null;
+    let mySeat = null;
+    let gameState = null;
+    let currentPhase = 'waiting';
+    let currentAction = null;
+
+    function connect() {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      ws = new WebSocket(`${protocol}//${window.location.host}`);
+
+      ws.onopen = () => {
+        console.log('Connected to server');
+      };
+
+      ws.onmessage = (event) => {
+        const msg = JSON.parse(event.data);
+        handleMessage(msg);
+      };
+
+      ws.onclose = () => {
+        console.log('Disconnected');
+        showError('连接断开，3秒后重连...');
+        setTimeout(connect, 3000);
+      };
+
+      ws.onerror = (err) => {
+        console.error('WebSocket error:', err);
+      };
+    }
+
+    function send(type, data) {
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type, data }));
+      }
+    }
+
+    function handleMessage(msg) {
+      console.log('Received:', msg.type, msg.data);
+      
+      switch (msg.type) {
+        case 'error':
+          showError(msg.data.message);
+          break;
+          
+        case 'joined':
+          mySeat = msg.data.seat;
+          gameState = msg.data.state;
+          showWaitingScreen();
+          break;
+          
+        case 'player_joined':
+          updatePlayerList(msg.data.players);
+          break;
+          
+        case 'role_assigned':
+          showRoleReveal(msg.data.role, msg.data.round, msg.data.phase);
+          break;
+          
+        case 'phase_changed':
+          currentPhase = msg.data.phase;
+          updateGameScreen(msg.data.phase, msg.data.round);
+          break;
+          
+        case 'your_turn':
+          showAction(msg.data);
+          break;
+          
+        case 'message':
+          showMessageModal(msg.data.message);
+          break;
+          
+        case 'player_status_changed':
+          updatePlayerStatus(msg.data);
+          break;
+          
+        case 'grimoire_view':
+          showGrimoire(msg.data.grimoire);
+          break;
+          
+        case 'storyteller_left':
+          showError('说书人离开了游戏');
+          break;
+      }
+    }
+
+    function showError(text) {
+      const el = document.getElementById('join-error');
+      el.textContent = text;
+      el.classList.remove('hidden');
+      setTimeout(() => el.classList.add('hidden'), 3000);
+    }
+
+    document.getElementById('btn-join').addEventListener('click', () => {
+      const roomId = document.getElementById('room-input').value.toUpperCase().trim();
+      const seat = parseInt(document.getElementById('seat-input').value);
+      
+      if (!roomId || !seat) {
+        showError('请输入房间号和座位号');
+        return;
+      }
+      
+      send('join_room', { roomId, seat, playerName: '' });
+    });
+
+    document.getElementById('btn-confirm-role').addEventListener('click', () => {
+      document.getElementById('role-reveal').classList.add('hidden');
+      document.getElementById('game-screen').classList.remove('hidden');
+    });
+
+    document.getElementById('btn-close-message').addEventListener('click', () => {
+      document.getElementById('message-modal').classList.add('hidden');
+    });
+
+    document.getElementById('btn-submit-action').addEventListener('click', () => {
+      const inputs = document.querySelectorAll('#action-inputs select, #action-inputs input');
+      const result = {};
+      inputs.forEach(input => {
+        result[input.dataset.key] = input.value;
+      });
+      
+      send('player_action_result', { seat: mySeat, result });
+      
+      document.getElementById('night-action').classList.add('hidden');
+      document.getElementById('waiting-message').classList.remove('hidden');
+    });
+
+    function showWaitingScreen() {
+      document.getElementById('join-screen').classList.add('hidden');
+      document.getElementById('waiting-screen').classList.remove('hidden');
+      document.getElementById('room-info').classList.remove('hidden');
+      document.getElementById('my-seat').textContent = mySeat;
+    }
+
+    function updatePlayerList(players) {
+      const list = document.getElementById('player-list');
+      list.innerHTML = players.map(p => `
+        <div class="flex justify-between items-center text-sm ${p.alive ? '' : 'text-slate-600'}">
+          <span>${p.seat}号 ${p.name}</span>
+          ${p.alive ? '<i class="fa-solid fa-circle text-[8px] text-emerald-500"></i>' : '<i class="fa-solid fa-xmark text-[8px] text-red-500"></i>'}
+        </div>
+      `).join('');
+    }
+
+    function showRoleReveal(role, round, phase) {
+      document.getElementById('waiting-screen').classList.add('hidden');
+      document.getElementById('role-reveal').classList.remove('hidden');
+      
+      const info = ROLE_INFO[role] || { type: "未知", desc: "" };
+      
+      // 设置角色图标
+      const iconMap = {
+        "镇民": "fa-user-shield",
+        "外来者": "fa-user-slash",
+        "爪牙": "fa-user-ninja",
+        "恶魔": "fa-skull"
+      };
+      document.getElementById('role-icon').className = `fa-solid ${iconMap[info.type] || 'fa-user-secret'} text-amber-500 text-4xl`;
+      
+      // 设置角色信息
+      document.getElementById('my-role').textContent = role;
+      document.getElementById('my-role').className = `text-3xl font-bold mb-2 ${TYPE_COLORS[info.type] || 'text-amber-500'}`;
+      document.getElementById('role-type').textContent = info.type;
+      document.getElementById('role-type').className = `text-sm mb-4 ${TYPE_COLORS[info.type]?.replace('text-', 'text-') || 'text-slate-400'}`;
+      document.getElementById('role-ability').textContent = info.desc;
+    }
+
+    function updateGameScreen(phase, round) {
+      document.getElementById('game-screen').classList.remove('hidden');
+      document.getElementById('role-reveal').classList.add('hidden');
+      document.getElementById('waiting-screen').classList.add('hidden');
+      
+      const phaseIcon = document.getElementById('phase-icon');
+      const phaseText = document.getElementById('phase-text');
+      
+      if (phase === 'night') {
+        phaseIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        phaseText.textContent = '夜间';
+        document.getElementById('day-info').classList.add('hidden');
+      } else {
+        phaseIcon.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        phaseText.textContent = '白天';
+        document.getElementById('day-info').classList.remove('hidden');
+      }
+      
+      document.getElementById('round-num').textContent = round;
+      
+      document.getElementById('waiting-message').classList.remove('hidden');
+      document.getElementById('night-action').classList.add('hidden');
+      
+      // 更新玩家状态显示
+      if (gameState && gameState.players) {
+        updatePlayerStatusDisplay();
+      }
+    }
+    
+    function updatePlayerStatusDisplay() {
+      const container = document.getElementById('alive-players');
+      container.innerHTML = gameState.players
+        .map(p => {
+          const isMe = p.seat === mySeat;
+          return `
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full ${p.alive ? 'bg-emerald-900/50 border-2 border-emerald-500' : 'bg-red-900/50 border-2 border-red-500'} ${isMe ? 'ring-2 ring-amber-500' : ''} flex items-center justify-center mx-auto mb-1 transition-all">
+                <span class="text-sm font-bold ${p.alive ? 'text-emerald-400' : 'text-red-400'}">${p.seat}</span>
+              </div>
+              ${p.poisoned ? '<i class="fa-solid fa-droplet text-purple-500 text-[8px]"></i>' : ''}
+              ${p.drunk ? '<i class="fa-solid fa-beer-mug-empty text-orange-500 text-[8px]"></i>' : ''}
+            </div>
+          `;
+        })
+        .join('');
+    }
+
+    function showAction(action) {
+      currentAction = action;
+      document.getElementById('waiting-message').classList.add('hidden');
+      document.getElementById('night-action').classList.remove('hidden');
+      
+      const roleInfo = ROLE_INFO[action.role || action.action] || { desc: '请执行你的能力' };
+      
+      // 设置能力信息
+      document.getElementById('action-role-name').textContent = action.role || action.action;
+      document.getElementById('action-role-ability').textContent = action.ability || roleInfo.desc;
+      
+      const container = document.getElementById('action-inputs');
+      container.innerHTML = '';
+      
+      const actionType = action.actionType || action.action;
+      
+      // 根据行动类型生成输入界面
+      if (actionType === 'select_2') {
+        container.innerHTML = `
+          <div class="bg-slate-950/50 rounded-xl p-4 border border-slate-700">
+            <label class="block text-xs text-slate-500 mb-2">选择第一个目标</label>
+            <select data-key="target1" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 outline-none">
+              <option value="">请选择...</option>
+              ${generatePlayerOptions()}
+            </select>
+          </div>
+          <div class="bg-slate-950/50 rounded-xl p-4 border border-slate-700">
+            <label class="block text-xs text-slate-500 mb-2">选择第二个目标</label>
+            <select data-key="target2" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 outline-none">
+              <option value="">请选择...</option>
+              ${generatePlayerOptions()}
+            </select>
+          </div>
+        `;
+      } else if (actionType === 'select_1') {
+        container.innerHTML = `
+          <div class="bg-slate-950/50 rounded-xl p-4 border border-slate-700">
+            <label class="block text-xs text-slate-500 mb-2">选择目标玩家</label>
+            <select data-key="target" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 outline-none">
+              <option value="">请选择...</option>
+              ${generatePlayerOptions()}
+            </select>
+          </div>
+        `;
+      } else if (actionType === 'guess') {
+        container.innerHTML = `
+          <div class="bg-slate-950/50 rounded-xl p-4 border border-slate-700">
+            <label class="block text-xs text-slate-500 mb-2">选择目标玩家</label>
+            <select data-key="target" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 outline-none mb-3">
+              <option value="">请选择...</option>
+              ${generatePlayerOptions()}
+            </select>
+            <label class="block text-xs text-slate-500 mb-2">猜测身份</label>
+            <select data-key="guess" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 outline-none">
+              <option value="">请选择...</option>
+              ${generateRoleOptions()}
+            </select>
+          </div>
+        `;
+      } else if (actionType === 'none') {
+        container.innerHTML = `
+          <div class="bg-slate-950/50 rounded-xl p-4 border border-slate-700 text-center">
+            <i class="fa-solid fa-info-circle text-amber-500 text-2xl mb-2"></i>
+            <p class="text-slate-400 text-sm">你的能力是被动的，无需操作</p>
+          </div>
+        `;
+      }
+      
+      // 震动提示
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]);
+      }
+    }
+
+    function generatePlayerOptions() {
+      if (!gameState || !gameState.players) return '';
+      return gameState.players
+        .filter(p => p.alive)
+        .map(p => `<option value="${p.seat}">${p.seat}号</option>`)
+        .join('');
+    }
+
+    function generateRoleOptions() {
+      return Object.keys(ROLE_INFO)
+        .map(r => `<option value="${r}">${r}</option>`)
+        .join('');
+    }
+
+    function updatePlayerStatus(data) {
+      if (!gameState || !gameState.players) return;
+      
+      const player = gameState.players.find(p => p.seat === data.seat);
+      if (player) {
+        if (data.alive !== undefined) player.alive = data.alive;
+        if (data.poisoned !== undefined) player.poisoned = data.poisoned;
+        if (data.drunk !== undefined) player.drunk = data.drunk;
+      }
+      
+      // 更新自己的状态显示
+      if (data.seat === mySeat) {
+        document.getElementById('status-alive').className = data.alive ? 'text-emerald-500' : 'text-red-500';
+        document.getElementById('status-alive').innerHTML = data.alive ? '<i class="fa-solid fa-heart"></i> 存活' : '<i class="fa-solid fa-skull"></i> 死亡';
+        
+        if (data.poisoned) {
+          document.getElementById('status-poisoned').classList.remove('hidden');
+        } else {
+          document.getElementById('status-poisoned').classList.add('hidden');
+        }
+        
+        if (data.drunk) {
+          document.getElementById('status-drunk').classList.remove('hidden');
+        } else {
+          document.getElementById('status-drunk').classList.add('hidden');
+        }
+      }
+      
+      updatePlayerStatusDisplay();
+    }
+
+    function showMessageModal(message) {
+      // 如果是结构化信息，显示在信息展示区
+      if (typeof message === 'object' && message.type === 'info') {
+        showInfoCard(message);
+        return;
+      }
+      
+      // 否则显示弹窗
+      document.getElementById('message-content').textContent = message;
+      document.getElementById('message-modal').classList.remove('hidden');
+      
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+      }
+    }
+    
+    function showInfoCard(info) {
+      const infoDisplay = document.getElementById('info-display');
+      infoDisplay.classList.remove('hidden');
+      
+      const iconMap = {
+        'success': 'fa-check-circle text-green-500',
+        'warning': 'fa-exclamation-triangle text-yellow-500',
+        'info': 'fa-info-circle text-blue-500',
+        'error': 'fa-times-circle text-red-500'
+      };
+      
+      const icon = iconMap[info.level] || 'fa-info-circle text-amber-500';
+      
+      const card = document.createElement('div');
+      card.className = 'bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-4 border border-amber-500/50 slide-up';
+      card.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 bg-slate-950/50 rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid ${icon}"></i>
+          </div>
+          <div class="flex-1">
+            <h4 class="font-bold text-amber-500 text-sm mb-1">${info.title || '信息'}</h4>
+            <p class="text-slate-300 text-sm">${info.content}</p>
+            ${info.detail ? `<p class="text-slate-500 text-xs mt-2">${info.detail}</p>` : ''}
+          </div>
+        </div>
+      `;
+      
+      infoDisplay.appendChild(card);
+      
+      // 震动提示
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+      }
+      
+      // 滚动到底部
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+
+    // 页面可见性变化时自动重连
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && (!ws || ws.readyState !== WebSocket.OPEN)) {
+        connect();
+      }
+    });
+
+    // 初始化连接
+    connect();
+  </script>
+</body>
+</html>

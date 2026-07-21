@@ -1,0 +1,208 @@
+{
+  "status": "GO",
+  "generatedAt": "2026-06-11T17:29:11.018Z",
+  "schemaVersion": "botc.role-token-alias-registry.v1",
+  "scope": "distilled-role-token-alias-knowledge",
+  "registryState": "READY",
+  "sourcePolicy": {
+    "distilledOnly": true,
+    "rawMediaStoredInProject": false,
+    "learningPipelineStoredInProject": false,
+    "runtimeReadsThisFileOnly": true
+  },
+  "official": {
+    "roleCount": 181,
+    "roleTrustLevel": "T0",
+    "generatedAt": "2026-06-10T01:31:29.429Z"
+  },
+  "totals": {
+    "aliases": 4,
+    "conflicts": 0,
+    "sourceApprovedNormalizations": 4
+  },
+  "aliases": [
+    {
+      "aliasId": "trouble-brewing-private-info-fortune-fortuneteller",
+      "aliasToken": "fortune",
+      "displayToken": "fortune",
+      "canonicalRoleId": "fortuneteller",
+      "canonicalRoleName": "Fortune Teller",
+      "scope": {
+        "scriptId": "trouble-brewing",
+        "eventType": "private-info"
+      },
+      "source": {
+        "enhancementCandidateId": "trouble-brewing-private-info-fortune",
+        "evidenceCount": 10,
+        "sourceCount": 3
+      },
+      "resolverPreview": {
+        "inputToken": "fortune",
+        "normalizedInput": "fortune",
+        "outputRoleId": "fortuneteller",
+        "matchType": "human-approved-lab-alias",
+        "applyMode": "preview-only"
+      },
+      "officialRoleAnchor": {
+        "id": "fortuneteller",
+        "name": "Fortune Teller",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",
+        "firstNightOrder": 57,
+        "otherNightOrder": 77,
+        "sourceTrustLevel": "T0"
+      },
+      "safeguards": {
+        "requiresHumanPromotion": true,
+        "productionApplyMode": "disabled",
+        "generatedPatch": false,
+        "sourceEventsMutated": false,
+        "ruleEngineMutated": false
+      }
+    },
+    {
+      "aliasId": "sects-and-violets-ability-action-snake-snakecharmer",
+      "aliasToken": "snake",
+      "displayToken": "snake",
+      "canonicalRoleId": "snakecharmer",
+      "canonicalRoleName": "Snake Charmer",
+      "scope": {
+        "scriptId": "sects-and-violets",
+        "eventType": "ability-action"
+      },
+      "source": {
+        "enhancementCandidateId": "sects-and-violets-ability-action-snake",
+        "evidenceCount": 7,
+        "sourceCount": 2
+      },
+      "resolverPreview": {
+        "inputToken": "snake",
+        "normalizedInput": "snake",
+        "outputRoleId": "snakecharmer",
+        "matchType": "human-approved-lab-alias",
+        "applyMode": "preview-only"
+      },
+      "officialRoleAnchor": {
+        "id": "snakecharmer",
+        "name": "Snake Charmer",
+        "team": "townsfolk",
+        "edition": "snv",
+        "ability": "Each night, choose an alive player: a chosen Demon swaps characters & alignments with you & is then poisoned.",
+        "firstNightOrder": 37,
+        "otherNightOrder": 23,
+        "sourceTrustLevel": "T0"
+      },
+      "safeguards": {
+        "requiresHumanPromotion": true,
+        "productionApplyMode": "disabled",
+        "generatedPatch": false,
+        "sourceEventsMutated": false,
+        "ruleEngineMutated": false
+      }
+    },
+    {
+      "aliasId": "bad-moon-rising-ability-action-devils-devilsadvocate",
+      "aliasToken": "devils",
+      "displayToken": "devil-s",
+      "canonicalRoleId": "devilsadvocate",
+      "canonicalRoleName": "Devil's Advocate",
+      "scope": {
+        "scriptId": "bad-moon-rising",
+        "eventType": "ability-action"
+      },
+      "source": {
+        "enhancementCandidateId": "bad-moon-rising-ability-action-devils",
+        "evidenceCount": 4,
+        "sourceCount": 1
+      },
+      "resolverPreview": {
+        "inputToken": "devil-s",
+        "normalizedInput": "devils",
+        "outputRoleId": "devilsadvocate",
+        "matchType": "human-approved-lab-alias",
+        "applyMode": "preview-only"
+      },
+      "officialRoleAnchor": {
+        "id": "devilsadvocate",
+        "name": "Devil's Advocate",
+        "team": "minion",
+        "edition": "bmr",
+        "ability": "Each night, choose a living player (different to last night): if executed tomorrow, they don't die.",
+        "firstNightOrder": 40,
+        "otherNightOrder": 26,
+        "sourceTrustLevel": "T0"
+      },
+      "safeguards": {
+        "requiresHumanPromotion": true,
+        "productionApplyMode": "disabled",
+        "generatedPatch": false,
+        "sourceEventsMutated": false,
+        "ruleEngineMutated": false
+      }
+    },
+    {
+      "aliasId": "sects-and-violets-ability-action-fang-fanggu",
+      "aliasToken": "fang",
+      "displayToken": "fang",
+      "canonicalRoleId": "fanggu",
+      "canonicalRoleName": "Fang Gu",
+      "scope": {
+        "scriptId": "sects-and-violets",
+        "eventType": "ability-action"
+      },
+      "source": {
+        "enhancementCandidateId": "sects-and-violets-ability-action-fang",
+        "evidenceCount": 3,
+        "sourceCount": 1
+      },
+      "resolverPreview": {
+        "inputToken": "fang",
+        "normalizedInput": "fang",
+        "outputRoleId": "fanggu",
+        "matchType": "human-approved-lab-alias",
+        "applyMode": "preview-only"
+      },
+      "officialRoleAnchor": {
+        "id": "fanggu",
+        "name": "Fang Gu",
+        "team": "demon",
+        "edition": "snv",
+        "ability": "Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]",
+        "firstNightOrder": null,
+        "otherNightOrder": 45,
+        "sourceTrustLevel": "T0"
+      },
+      "safeguards": {
+        "requiresHumanPromotion": true,
+        "productionApplyMode": "disabled",
+        "generatedPatch": false,
+        "sourceEventsMutated": false,
+        "ruleEngineMutated": false
+      }
+    }
+  ],
+  "conflicts": [],
+  "promotion": {
+    "mayPromoteAutomatically": false,
+    "promotedAliases": 0,
+    "promotedRuleChanges": 0,
+    "requiresHumanPromotion": true,
+    "requiresParserFixtureBeforeProduction": true
+  },
+  "boundaries": {
+    "productionApplyMode": "disabled",
+    "promotedAliases": 0,
+    "promotedRuleChanges": 0,
+    "ruleEngineMutated": false,
+    "sourceEventsMutated": false,
+    "liveGameImpact": false,
+    "generatedPatch": false,
+    "noVideoDownload": true,
+    "noAsrProcessing": true,
+    "noLearningMaterialProcessing": true,
+    "noRawLearningMaterial": true,
+    "projectRuntimeKnowledgeOnly": true
+  },
+  "failures": []
+}

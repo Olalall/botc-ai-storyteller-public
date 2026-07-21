@@ -1,0 +1,449 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.916Z",
+  "source": {
+    "url": "https://release.botc.app/resources/data/jinxes.json",
+    "kind": "official",
+    "trustLevel": "T0",
+    "retrievedAt": "2026-07-10T17:34:21.916Z",
+    "author": null,
+    "version": null,
+    "notes": null,
+    "httpStatus": 200,
+    "etag": "\"6a4e3956-536e\"",
+    "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+  },
+  "items": [
+    {
+      "id": "alchemist",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "alhadikhia",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "boffin",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "bountyhunter",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "butler",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "cannibal",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "cerenovus",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "heretic",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "legion",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "leviathan",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "lilmonsta",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "lleech",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "magician",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "marionette",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "mastermind",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "mathematician",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "pithag",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "plaguedoctor",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "recluse",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "riot",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "scarletwoman",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "spy",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "summoner",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "vizier",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "vortox",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "widow",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    },
+    {
+      "id": "yaggababble",
+      "characters": [],
+      "source": {
+        "url": "https://release.botc.app/resources/data/jinxes.json",
+        "kind": "official",
+        "trustLevel": "T0",
+        "retrievedAt": "2026-07-10T17:34:21.916Z",
+        "author": null,
+        "version": null,
+        "notes": null,
+        "httpStatus": 200,
+        "etag": "\"6a4e3956-536e\"",
+        "lastModified": "Wed, 08 Jul 2026 11:49:42 GMT"
+      }
+    }
+  ]
+}

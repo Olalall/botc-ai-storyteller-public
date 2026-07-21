@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>血染钟楼｜局后复盘</title>
+  <link rel="icon" href="/clocktower-assets/web/welcome-logo-gstone.png" />
+  <link rel="stylesheet" href="review.css" />
+</head>
+<body>
+  <main class="review-app">
+    <section class="hero-panel" aria-label="复盘系统总览">
+      <div class="hero-ornament left"></div>
+      <div class="hero-ornament right"></div>
+      <p class="eyebrow">血染钟楼 · 局后复盘</p>
+      <h1>鸦木镇复盘</h1>
+      <p class="subtitle">局后按事实复盘：胜负原因、关键转折、被忽略的信息和票型问题。</p>
+      <div class="hero-actions hero-badges" aria-label="复盘系统状态">
+        <span class="mode-button active">完整公开</span>
+        <span class="mode-button">只读对局记录</span>
+        <span class="mode-button">三端适配</span>
+      </div>
+      <nav class="device-strip" aria-label="复盘快捷导航">
+        <span id="viewportProfile" class="device-chip">当前视口：检测中</span>
+        <a href="#summaryCard">总览</a>
+        <a href="#timelineCard">时间线</a>
+        <a href="#logicSection">逻辑线</a>
+        <a href="#integrationCard">数据对接</a>
+      </nav>
+      <div id="sourceStatus" class="source-status" role="status">数据来源：初始化中</div>
+    </section>
+
+    <section class="layout-shell">
+      <aside class="record-sidebar" aria-label="对局列表">
+        <div class="sidebar-heading">
+          <h2>对局列表</h2>
+          <span id="recordCount" class="count-pill">0 局</span>
+        </div>
+        <div class="filter-grid" aria-label="筛选器">
+          <button class="filter-button active" data-filter="all">全部</button>
+          <button class="filter-button" data-filter="evil">邪恶胜</button>
+          <button class="filter-button" data-filter="good">善良胜</button>
+          <button class="filter-button" data-filter="disputed">争议局</button>
+        </div>
+        <div id="recordList" class="record-list"></div>
+      </aside>
+
+      <section class="review-scroll" aria-live="polite">
+        <article id="summaryCard" class="summary-card parchment-card">
+          <div class="section-label">对局概览</div>
+          <div class="summary-grid">
+            <div>
+              <h2 id="gameTitle">请选择一局</h2>
+              <p id="gameMeta" class="muted"></p>
+            </div>
+            <div class="result-seal" id="resultSeal">—</div>
+          </div>
+          <div id="unfinishedNotice" class="unfinished-notice" hidden>本局尚未结束。结束本局后再公开完整复盘。</div>
+          <div id="keyStats" class="stat-strip"></div>
+          <div id="storytellerSummary" class="summary-text"></div>
+        </article>
+
+        <section id="insightGrid" class="insight-grid">
+          <article class="parchment-card">
+            <div class="section-label">关键转折</div>
+            <p class="module-hint">先看哪一步改变了胜负，而不是只看谁最后出局。</p>
+            <div id="turningPoints" class="chip-list"></div>
+          </article>
+          <article class="parchment-card">
+            <div class="section-label">被忽略的信息</div>
+            <p class="module-hint">把桌上出现过、但当时没有被追问的信息重新摆出来。</p>
+            <div id="missedSignals" class="chip-list"></div>
+          </article>
+          <article class="parchment-card">
+            <div class="section-label">票型判断</div>
+            <p class="module-hint">用票型解释阵营行动，避免只给一个简单输赢结论。</p>
+            <div id="voteAnalysis" class="analysis-copy"></div>
+          </article>
+        </section>
+
+        <section id="timelineCard" class="parchment-card timeline-card">
+          <div class="section-header-row">
+            <div>
+              <div class="section-label">时间线</div>
+              <h2>按阶段复盘</h2>
+              <p class="module-hint wide">每个阶段拆成事实、当时视角、事后复盘、追问和胜负影响。</p>
+            </div>
+            <div class="legend-row">
+              <span><i class="dot night"></i>夜晚</span>
+              <span><i class="dot day"></i>白天</span>
+              <span><i class="dot vote"></i>投票</span>
+            </div>
+          </div>
+          <div id="timeline" class="timeline"></div>
+        </section>
+
+        <section id="logicSection" class="two-column">
+          <article class="parchment-card">
+            <div class="section-label">玩家判断</div>
+            <div id="playerLogic" class="logic-stack"></div>
+          </article>
+          <article class="parchment-card">
+            <div class="section-label">说书人补充</div>
+            <div id="storytellerNotes" class="logic-stack"></div>
+          </article>
+        </section>
+
+        <section id="integrationCard" class="parchment-card integration-card">
+          <div class="section-label">主项目数据对接</div>
+          <h2>现场游玩不用导入文件，复盘页直接读取本局记录</h2>
+          <ul id="integrationList" class="privacy-list"></ul>
+        </section>
+      </section>
+    </section>
+    <a class="deerflow-signature" href="https://deerflow.tech" target="_blank" rel="noreferrer" aria-label="Created By Deerflow">署名</a>
+  </main>
+  <script src="review.js"></script>
+</body>
+</html>

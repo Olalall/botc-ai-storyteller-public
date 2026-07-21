@@ -1,0 +1,30 @@
+name: blood-on-clocktower-storyteller
+
+services:
+  storyteller:
+    build:
+      context: .
+    image: blood-on-clocktower-storyteller:local
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: ${PORT:-3000}
+      BOTC_ROOM_SNAPSHOT_DIR: /data/room-snapshots
+      BOTC_GAME_RECORDS_ADMIN_TOKEN: ${BOTC_GAME_RECORDS_ADMIN_TOKEN:-}
+    ports:
+      - "${PORT:-3000}:3000"
+    volumes:
+      - botc-room-snapshots:/data/room-snapshots
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:' + (process.env.PORT || 3000) + '/healthz').then((r) => { if (!r.ok) process.exit(1); }).catch(() => process.exit(1));"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  botc-room-snapshots:

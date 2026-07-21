@@ -1,0 +1,559 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.788Z",
+  "scriptId": "trouble-brewing",
+  "displayName": "Trouble Brewing",
+  "source": {
+    "kind": "official-derived",
+    "trustLevel": "T0",
+    "basis": "data/runtime/official/normalized/official-roles.json",
+    "edition": "tb"
+  },
+  "status": "supported_or_importable",
+  "roleCount": 27,
+  "officialRoleCount": 27,
+  "homebrewRoleCount": 0,
+  "invalidEntryCount": 0,
+  "unsupportedRoleIds": [],
+  "unsupportedRuleSupport": [
+    "chef",
+    "investigator",
+    "washerwoman",
+    "librarian",
+    "empath",
+    "fortuneteller",
+    "undertaker",
+    "monk",
+    "slayer",
+    "soldier",
+    "ravenkeeper",
+    "mayor",
+    "virgin",
+    "butler",
+    "drunk",
+    "recluse",
+    "saint",
+    "poisoner",
+    "spy",
+    "scarletwoman",
+    "baron",
+    "imp",
+    "thief",
+    "bureaucrat",
+    "gunslinger",
+    "beggar",
+    "scapegoat"
+  ],
+  "teamCounts": {
+    "townsfolk": 13,
+    "outsider": 4,
+    "minion": 4,
+    "demon": 1,
+    "traveller": 5
+  },
+  "entries": [
+    {
+      "kind": "official-id",
+      "id": "chef",
+      "display": {
+        "name": "Chef",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "You start knowing how many pairs of evil players there are.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "investigator",
+      "display": {
+        "name": "Investigator",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "You start knowing that 1 of 2 players is a particular Minion.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Minion",
+          "Wrong"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "washerwoman",
+      "display": {
+        "name": "Washerwoman",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "You start knowing that 1 of 2 players is a particular Townsfolk.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Townsfolk",
+          "Wrong"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "librarian",
+      "display": {
+        "name": "Librarian",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Outsider",
+          "Wrong"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "empath",
+      "display": {
+        "name": "Empath",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "Each night, you learn how many of your 2 alive neighbors are evil.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "fortuneteller",
+      "display": {
+        "name": "Fortune Teller",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Red Herring"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "undertaker",
+      "display": {
+        "name": "Undertaker",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "Each night*, you learn which character died by execution today.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Died Today"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "monk",
+      "display": {
+        "name": "Monk",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "Each night*, choose a player (not yourself): they are safe from the Demon tonight.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Safe"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "slayer",
+      "display": {
+        "name": "Slayer",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "Once per game, during the day, publicly choose a player: if they are the Demon, they die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "soldier",
+      "display": {
+        "name": "Soldier",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "You are safe from the Demon.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "ravenkeeper",
+      "display": {
+        "name": "Ravenkeeper",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "If you die at night, you are woken to choose a player: you learn their character.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "mayor",
+      "display": {
+        "name": "Mayor",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "virgin",
+      "display": {
+        "name": "Virgin",
+        "team": "townsfolk",
+        "edition": "tb",
+        "ability": "The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "butler",
+      "display": {
+        "name": "Butler",
+        "team": "outsider",
+        "edition": "tb",
+        "ability": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Master"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "drunk",
+      "display": {
+        "name": "Drunk",
+        "team": "outsider",
+        "edition": "tb",
+        "ability": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [
+          "Is The Drunk"
+        ],
+        "setup": true,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "recluse",
+      "display": {
+        "name": "Recluse",
+        "team": "outsider",
+        "edition": "tb",
+        "ability": "You might register as evil & as a Minion or Demon, even if dead.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "saint",
+      "display": {
+        "name": "Saint",
+        "team": "outsider",
+        "edition": "tb",
+        "ability": "If you die by execution, your team loses.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "poisoner",
+      "display": {
+        "name": "Poisoner",
+        "team": "minion",
+        "edition": "tb",
+        "ability": "Each night, choose a player: they are poisoned tonight and tomorrow day.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Poisoned"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "spy",
+      "display": {
+        "name": "Spy",
+        "team": "minion",
+        "edition": "tb",
+        "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "scarletwoman",
+      "display": {
+        "name": "Scarlet Woman",
+        "team": "minion",
+        "edition": "tb",
+        "ability": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Is The Demon"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "baron",
+      "display": {
+        "name": "Baron",
+        "team": "minion",
+        "edition": "tb",
+        "ability": "There are extra Outsiders in play. [+2 Outsiders]",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": true,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "imp",
+      "display": {
+        "name": "Imp",
+        "team": "demon",
+        "edition": "tb",
+        "ability": "Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "thief",
+      "display": {
+        "name": "Thief",
+        "team": "traveller",
+        "edition": "tb",
+        "ability": "Each night, choose a player (not yourself): their vote counts negatively tomorrow.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Negative Vote"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "bureaucrat",
+      "display": {
+        "name": "Bureaucrat",
+        "team": "traveller",
+        "edition": "tb",
+        "ability": "Each night, choose a player (not yourself): their vote counts as 3 votes tomorrow.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "3 Votes"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "gunslinger",
+      "display": {
+        "name": "Gunslinger",
+        "team": "traveller",
+        "edition": "tb",
+        "ability": "Each day, after the 1st vote has been tallied, you may choose a player that voted: they die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "beggar",
+      "display": {
+        "name": "Beggar",
+        "team": "traveller",
+        "edition": "tb",
+        "ability": "You must use a vote token to vote. If a dead player gives you theirs, you learn their alignment. You are sober & healthy.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "scapegoat",
+      "display": {
+        "name": "Scapegoat",
+        "team": "traveller",
+        "edition": "tb",
+        "ability": "If a player of your alignment is executed, you might be executed instead.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    }
+  ],
+  "redlines": {
+    "canonicalKeys": "official-role-id",
+    "importDisplaySupportOnly": true,
+    "executableRuleAutomationOpened": false,
+    "aiIntegrationOpened": false,
+    "eventLogWritingOpened": false,
+    "authoritativeHistoryExpansionOpened": false,
+    "persistedRecoverySnapshotsOpened": false,
+    "bluffToolingOpened": false,
+    "homebrewAutomationOpened": false,
+    "broaderAutomationOpened": false
+  }
+}

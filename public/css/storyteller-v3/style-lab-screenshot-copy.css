@@ -1,0 +1,342 @@
+﻿:root {
+  --blue: #1477ff;
+  --red: #d90017;
+  --brown: #2b140b;
+  --edge: rgba(216, 185, 150, .78);
+  --text: #f6f6f6;
+  --muted: #aaa;
+}
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #020404; }
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  color: var(--text);
+  text-shadow: 0 2px 2px #000;
+}
+.copy-shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 1280px;
+  min-height: 720px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.18), rgba(0,0,0,0) 22%, rgba(0,0,0,0) 74%, rgba(0,0,0,.48)),
+    radial-gradient(circle at 51% 45%, rgba(20, 38, 36, .15), rgba(0,0,0,.52) 68%),
+    url('/clocktower-assets/web/bg_night.png') center / cover no-repeat;
+}
+.copy-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, .08);
+}
+.hud-counts {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  z-index: 5;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+.hud-counts .blue { color: #2a79ff; }
+.hud-counts .red { color: #ff101c; }
+.hud-counts .heart { color: #14a375; }
+.hud-counts .check { color: #df8129; }
+.hud-counts .icon { color: #bdbdbd; }
+.gear {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  z-index: 8;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 7px;
+  background: rgba(0,0,0,.78);
+  color: #fff;
+  font-size: 21px;
+}
+.right-menu {
+  position: absolute;
+  right: 12px;
+  top: 55px;
+  z-index: 7;
+  width: 214px;
+  padding: 0 0 8px;
+  background: rgba(0,0,0,.68);
+  border-radius: 3px;
+  box-shadow: 0 0 22px rgba(0,0,0,.72);
+}
+.menu-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 34px;
+  background: linear-gradient(90deg, #002fae, #050505 52%, #b0000c);
+}
+.tab { display: grid; place-items: center; font-size: 17px; font-weight: 800; color: #ddd; }
+.tab.active { background: rgba(0, 78, 255, .44); }
+.right-menu h2 {
+  margin: -1px 0 0;
+  text-align: center;
+  font-size: 27px;
+  line-height: 1.1;
+  font-weight: 900;
+  color: #d6d6d6;
+}
+.right-menu button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  padding: 3px 7px;
+  background: transparent;
+  color: #d1d1d1;
+  font: 800 23px/1.18 "Microsoft YaHei", sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.right-menu button:hover { color: #fff; background: rgba(255,255,255,.08); }
+kbd { color: #c9c9c9; font: inherit; font-size: 18px; }
+.grimoire {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.edition-logo {
+  position: absolute;
+  left: 50%;
+  top: 51.5%;
+  width: 228px;
+  max-height: 130px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 7px 5px rgba(0,0,0,.75));
+}
+.seat-ring { position: absolute; inset: 0; }
+.seat {
+  position: absolute;
+  width: 136px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.token {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  margin: 0 auto -3px;
+  border-radius: 50%;
+  background: url('/clocktower-assets/web/token1.png') center / cover no-repeat;
+  filter: drop-shadow(0 7px 5px rgba(0,0,0,.72));
+}
+.token::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 20px;
+  height: 17px;
+  transform: translateX(-50%);
+  background: url('/clocktower-assets/web/leaf-top1.png') center / contain no-repeat;
+}
+.token img {
+  position: absolute;
+  inset: 20px 25px 33px; width: 66px; height: 66px;
+  object-fit: contain;
+}
+.token span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  color: #1d120c;
+  font-size: 17px;
+  font-weight: 900;
+  transform: rotate(-12deg);
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
+.token.marked { filter: drop-shadow(0 0 10px rgba(255, 0, 0, .8)) drop-shadow(0 7px 5px rgba(0,0,0,.72)); }
+.badge {
+  position: absolute;
+  right: -8px;
+  top: 23px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid #080808;
+  color: #fff;
+  font-style: normal;
+  font-size: 19px;
+  font-weight: 900;
+}
+.badge.blue { background: #064fbd; }
+.badge.red { background: #cf0017; }
+.badge.black { background: #333; }
+.seat-label {
+  display: inline-block;
+  min-width: 122px;
+  height: 31px;
+  padding: 0 12px;
+  border: 3px solid #916f5a;
+  border-radius: 8px;
+  background: rgba(38, 17, 8, .93);
+  color: #fff;
+  font-size: 26px;
+  line-height: 25px;
+  font-weight: 900;
+  white-space: nowrap;
+  box-shadow: 0 2px 2px #000;
+}
+.bluff-panel {
+  position: absolute;
+  left: 10px;
+  bottom: 11px;
+  z-index: 6;
+  width: 382px;
+  height: 170px;
+  border: 3px solid #a89c90;
+  border-radius: 9px;
+  background: rgba(0,0,0,.84);
+  text-align: center;
+}
+.bluff-panel h2 { margin: 6px 38px 8px; font-size: 26px; line-height: 1; }
+.close-dot {
+  position: absolute;
+  right: 11px;
+  top: 12px;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: #f3f3f3;
+  color: #000;
+  font: 900 24px/1 sans-serif;
+}
+.bluff-list { display: flex; gap: 12px; justify-content: center; }
+.mini-token {
+  position: relative;
+  width: 112px; height: 112px;
+  border-radius: 50%;
+  background: url('/clocktower-assets/web/token1.png') center / cover no-repeat;
+}
+.mini-token img { position: absolute; inset: 19px 26px 34px; width: 58px; height: 58px; object-fit: contain; }
+.mini-token span { position: absolute; left: 0; right: 0; bottom: 8px; color: #100; font-size: 19px; font-weight: 900; transform: rotate(-18deg); text-shadow: 0 1px rgba(255,255,255,.35); }
+.modal-panel {
+  position: absolute;
+  left: 20%;
+  top: 6%;
+  z-index: 10;
+  width: 60%;
+  height: 88%;
+  min-width: 960px;
+  padding: 22px 36px;
+  overflow: auto;
+  background: #000;
+  border-radius: 8px;
+  box-shadow: 0 22px 50px rgba(0,0,0,.68);
+  scrollbar-color: #fff #111;
+  scrollbar-width: thin;
+}
+.modal-panel.is-hidden { display: none; }
+.window-btn {
+  position: absolute;
+  top: 20px;
+  width: 27px;
+  height: 24px;
+  border: 0;
+  border-radius: 4px;
+  background: #eee;
+  color: #111;
+  font: 900 24px/20px Arial, sans-serif;
+}
+.window-btn.min { right: 62px; }
+.window-btn.close { right: 29px; border-radius: 50%; }
+.modal-panel h1 { margin: 0 90px 22px; text-align: center; font-size: 29px; line-height: 1.2; }
+.assign-layout { display: grid; grid-template-columns: 86px 1fr; align-items: center; gap: 32px; }
+.quota-stack { display: grid; gap: 72px; justify-items: center; }
+.quota {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #020202;
+  font-size: 21px;
+  font-weight: 900;
+}
+.quota.blue { color: #1273ff; box-shadow: 0 0 18px #006dff; }
+.quota.red { color: #ff0b18; box-shadow: 0 0 18px #e50000; }
+.role-pick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 17px 19px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.pick {
+  position: relative;
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  background: url('/clocktower-assets/web/token1.png') center / cover no-repeat;
+  filter: drop-shadow(0 0 12px #074eda);
+}
+.pick.minion, .pick.demon { filter: drop-shadow(0 0 12px #c9000e); }
+.pick img { position: absolute; inset: 17px 23px 32px; width: 58px; height: 58px; object-fit: contain; }
+.pick span { position: absolute; left: 0; right: 0; bottom: 9px; color: #160c07; font-size: 14px; font-weight: 900; text-align: center; transform: rotate(-14deg); }
+.duplicate { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 24px; font: 700 22px/1.2 sans-serif; }
+.duplicate input { width: 22px; height: 22px; }
+.modal-actions { display: flex; justify-content: center; gap: 1px; margin-top: 12px; }
+.modal-actions button {
+  border: 1px solid #666;
+  padding: 8px 20px;
+  border-radius: 9px;
+  background: linear-gradient(#777, #111);
+  color: #fff;
+  font-size: 21px;
+  font-weight: 900;
+}
+.warn-mark { position: absolute; right: 24px; bottom: 22px; color: #ff0616; font-size: 36px; }
+.script-panel { padding: 88px 82px 46px; }
+.script-tabs { display: flex; justify-content: center; gap: 150px; margin-bottom: 34px; }
+.script-tabs button { border: 0; background: none; color: #fff; font-size: 29px; font-weight: 900; }
+.script-tabs .active { color: #0b70ff; border-bottom: 7px solid #0b70ff; border-radius: 2px; }
+.script-intro { margin: 0 0 58px; text-align: center; font-size: 22px; font-weight: 800; }
+.script-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 78px 62px; }
+.script-grid article { min-height: 238px; text-align: center; }
+.script-grid img { width: 178px; height: 86px; object-fit: contain; margin-bottom: 12px; }
+.script-grid b { display: block; font-size: 17px; color: #fff; margin: 6px 0 17px; }
+.script-grid span { display: block; color: #bfbfbf; font-size: 15px; line-height: 1.75; }
+.script-grid button { border: 0; background: none; color: #fff; margin-top: 12px; font-weight: 900; font-size: 16px; }
+.roles-panel { left: 20%; top: 4%; height: 92%; width: 60%; min-width: 1010px; padding: 12px 22px 18px; }
+.roles-panel h1 { font-family: Georgia, "Microsoft YaHei", serif; margin: 0 80px 6px; font-size: 30px; }
+.roles-content { display: grid; grid-template-columns: 70px 1fr; gap: 22px; }
+.role-class-bars { display: grid; grid-template-rows: 1fr .42fr .42fr .42fr; border-right: 1px solid #333; }
+.role-class-bars span { display: grid; place-items: center; font-size: 21px; font-weight: 900; }
+.role-class-bars .town { background: linear-gradient(90deg, #054dff, #00143d); }
+.role-class-bars .outsider { background: linear-gradient(90deg, #0753ff, #00143d); }
+.role-class-bars .minion, .role-class-bars .demon { background: linear-gradient(90deg, #f40010, #310003); }
+.role-list { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 38px; }
+.role-line { display: grid; grid-template-columns: 52px 1fr 70px; gap: 13px; min-height: 58px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.role-line img { width: 48px; height: 48px; object-fit: contain; align-self: center; }
+.role-line h3 { margin: 0; font-size: 18px; line-height: 1.1; color: #1681ff; }
+.role-line.minion h3, .role-line.demon h3 { color: #ff171d; }
+.role-line p { margin: 3px 0 0; font-size: 16px; line-height: 1.24; font-weight: 800; }
+.role-line small { align-self: start; color: #777; font-size: 13px; text-align: right; }
+@media (max-width: 1500px) {
+  .seat { width: 122px; }
+  .token { width: 102px; height: 102px; }
+  .token img { inset: 18px 22px 28px; width: 58px; height: 58px; }
+  .token span { font-size: 16px; }
+  .seat-label { min-width: 110px; height: 29px; font-size: 21px; line-height: 23px; }
+  .modal-panel { left: 16%; width: 66%; min-width: 880px; }
+}
+
+
+

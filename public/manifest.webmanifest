@@ -1,0 +1,11 @@
+{
+  "name": "Blood on the Clocktower Storyteller",
+  "short_name": "BOTC Storyteller",
+  "start_url": "/storyteller.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#92400e",
+  "description": "Offline-first storyteller shell for local Blood on the Clocktower sessions.",
+  "icons": []
+}

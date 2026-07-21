@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>血染钟楼 - 魔典</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Noto Serif SC', serif;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+    
+    .grimoire-bg {
+      background: radial-gradient(circle at center, #2d2d2d 0%, #1a1a1a 100%);
+    }
+    
+    .token {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: absolute;
+    }
+    
+    .token:hover {
+      transform: scale(1.1);
+      z-index: 100;
+    }
+    
+    .token.dead {
+      opacity: 0.5;
+      filter: grayscale(100%);
+    }
+    
+    .token-inner {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #d4af37;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    
+    .token.selected .token-inner {
+      border-color: #fbbf24;
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+    }
+    
+    .token.poisoned .token-inner {
+      border-color: #a855f7;
+    }
+    
+    .token.drunk .token-inner {
+      border-color: #f97316;
+    }
+
+    .reminder-token {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #8b4513;
+      border: 2px solid #d4af37;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    
+    .night-sheet {
+      background: rgba(20, 20, 30, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .role-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .auto-panel {
+      background: rgba(30, 30, 40, 0.98);
+      backdrop-filter: blur(10px);
+      border-left: 3px solid #d4af37;
+    }
+  </style>
+</head>
+<body class="grimoire-bg text-white">
+  <div id="app" class="h-screen flex">
+    <!-- 左侧：魔典主区域 -->
+    <div class="flex-1 relative">
+      <!-- 顶部工具栏 -->
+      <div class="absolute top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <span class="text-amber-500 font-bold text-lg">血染钟楼魔典</span>
+          <span id="room-id-display" class="bg-amber-900/50 text-amber-500 px-3 py-1 rounded-full text-sm font-mono">---</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="script-name" class="text-slate-400 text-sm">暗流涌动</span>
+          <button id="btn-settings" class="text-slate-400 hover:text-white px-2">
+            <i class="fa-solid fa-cog"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 魔典圆形布局 -->
+      <div id="grimoire-circle" class="absolute inset-0 flex items-center justify-center">
+        <!-- 玩家令牌将动态生成在这里 -->
+      </div>
+
+      <!-- 底部控制栏 -->
+      <div class="absolute bottom-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm px-4 py-3">
+        <div class="flex justify-center gap-2">
+          <button id="btn-night" class="bg-indigo-900/80 hover:bg-indigo-800 text-white px-4 py-2 rounded-lg font-bold">
+            <i class="fa-solid fa-moon mr-1"></i> 天黑
+          </button>
+          <button id="btn-day" class="bg-amber-900/80 hover:bg-amber-800 text-white px-4 py-2 rounded-lg font-bold">
+            <i class="fa-solid fa-sun mr-1"></i> 天亮
+          </button>
+          <button id="btn-vote" class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg font-bold">
+            <i class="fa-solid fa-gavel mr-1"></i> 投票
+          </button>
+          <button id="btn-execute" class="bg-red-900/80 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-bold">
+            <i class="fa-solid fa-skull mr-1"></i> 处决
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：自动化辅助面板 -->
+    <div id="auto-panel" class="w-96 auto-panel overflow-y-auto">
+      <div class="p-4">
+        <!-- 房间控制 -->
+        <div id="room-setup" class="mb-6">
+          <h3 class="text-amber-500 font-bold mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-door-open"></i> 房间设置
+          </h3>
+          <div class="space-y-2">
+            <button id="btn-create-room" class="w-full bg-amber-700 hover:bg-amber-600 text-white py-2 rounded-lg font-bold">
+              <i class="fa-solid fa-plus mr-1"></i> 创建房间
+            </button>
+            <div class="flex gap-2">
+              <input id="join-room-input" type="text" placeholder="房间号" maxlength="6"
+                class="flex-1 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-center font-mono uppercase">
+              <button id="btn-join-room" class="bg-slate-700 hover:bg-slate-600 text-white px-4 rounded-lg font-bold">
+                加入
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 剧本选择 -->
+        <div id="script-section" class="mb-6 hidden">
+          <h3 class="text-amber-500 font-bold mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-book"></i> 剧本
+          </h3>
+          <select id="script-selector" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-2">
+            <option value="trouble-brewing">暗流涌动</option>
+          </select>
+        </div>
+
+        <!-- 玩家列表 -->
+        <div id="players-section" class="mb-6 hidden">
+          <h3 class="text-amber-500 font-bold mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-users"></i> 玩家 (<span id="player-count">0</span>)
+          </h3>
+          <div id="player-list" class="space-y-2 mb-3">
+            <!-- 动态生成 -->
+          </div>
+          <button id="btn-auto-assign" class="w-full bg-amber-700 hover:bg-amber-600 text-white py-2 rounded-lg font-bold">
+            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 自动分配身份
+          </button>
+        </div>
+
+        <!-- 夜间行动队列 -->
+        <div id="night-section" class="mb-6 hidden">
+          <h3 class="text-amber-500 font-bold mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-moon"></i> 夜间行动
+          </h3>
+          <div class="bg-slate-900/50 rounded-lg p-3 mb-3">
+            <div class="flex justify-between text-xs text-slate-400 mb-2">
+              <span>进度</span>
+              <span id="night-progress">0/0</span>
+            </div>
+            <div class="w-full bg-slate-700 rounded-full h-2">
+              <div id="night-progress-bar" class="bg-amber-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+            </div>
+          </div>
+          <div id="night-queue" class="space-y-2">
+            <!-- 动态生成 -->
+          </div>
+        </div>
+
+        <!-- 自动化设置 -->
+        <div id="automation-section" class="mb-6 hidden">
+          <h3 class="text-amber-500 font-bold mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-robot"></i> 自动化
+          </h3>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 text-sm">
+              <input type="checkbox" id="auto-send-prompts" class="rounded" checked>
+              <span>自动发送行动提示</span>
+            </label>
+            <label class="flex items-center gap-2 text-sm">
+              <input type="checkbox" id="auto-calculate" class="rounded" checked>
+              <span>自动计算能力结果</span>
+            </label>
+            <label class="flex items-center gap-2 text-sm">
+              <input type="checkbox" id="auto-progress" class="rounded">
+              <span>自动进入下一个行动</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 玩家加入链接 -->
+        <div id="join-link-section" class="hidden">
+          <h3 class="text-slate-500 text-xs mb-2">玩家加入链接</h3>
+          <div class="flex gap-2">
+            <input id="player-join-link" type="text" readonly
+              class="flex-1 bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs font-mono text-slate-400">
+            <button id="btn-copy-link" class="bg-slate-700 hover:bg-slate-600 px-3 rounded text-xs">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 令牌详情弹窗 -->
+  <div id="token-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-[100] hidden">
+    <div class="bg-slate-900 rounded-xl p-6 max-w-md w-full mx-4 border border-amber-500">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="text-amber-500 font-bold text-lg">
+          <span id="modal-seat">1</span>号 - <span id="modal-name">玩家</span>
+        </h3>
+        <button id="btn-close-modal" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 身份信息 -->
+        <div class="bg-slate-800 rounded-lg p-4">
+          <div class="flex items-center gap-3 mb-3">
+            <div id="modal-role-icon" class="role-icon bg-slate-700"></div>
+            <div>
+              <div id="modal-role" class="font-bold text-amber-500">未分配</div>
+              <div id="modal-role-type" class="text-xs text-slate-400">-</div>
+            </div>
+          </div>
+          <p id="modal-ability" class="text-sm text-slate-300">-</p>
+        </div>
+
+        <!-- 状态控制 -->
+        <div class="grid grid-cols-2 gap-2">
+          <button id="btn-toggle-alive" class="bg-slate-700 hover:bg-slate-600 py-2 rounded-lg">
+            <i class="fa-solid fa-heart mr-1"></i> <span id="alive-text">存活</span>
+          </button>
+          <button id="btn-toggle-poisoned" class="bg-purple-900/50 hover:bg-purple-800 py-2 rounded-lg">
+            <i class="fa-solid fa-flask mr-1"></i> 中毒
+          </button>
+          <button id="btn-toggle-drunk" class="bg-orange-900/50 hover:bg-orange-800 py-2 rounded-lg">
+            <i class="fa-solid fa-beer-mug-empty mr-1"></i> 醉酒
+          </button>
+          <button id="btn-toggle-protected" class="bg-blue-900/50 hover:bg-blue-800 py-2 rounded-lg">
+            <i class="fa-solid fa-shield mr-1"></i> 保护
+          </button>
+        </div>
+
+        <!-- 快速操作 -->
+        <div class="space-y-2">
+          <button id="btn-send-action" class="w-full bg-indigo-700 hover:bg-indigo-600 py-2 rounded-lg">
+            <i class="fa-solid fa-paper-plane mr-1"></i> 发送行动提示
+          </button>
+          <button id="btn-send-message" class="w-full bg-slate-700 hover:bg-slate-600 py-2 rounded-lg">
+            <i class="fa-solid fa-envelope mr-1"></i> 发送消息
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let ws = null;
+    let currentRoom = null;
+    let gameState = {
+      players: [],
+      phase: 'waiting',
+      round: 0,
+      nightQueue: []
+    };
+    let selectedToken = null;
+
+    // WebSocket连接
+    function connect() {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      ws = new WebSocket(`${protocol}//${window.location.host}`);
+      
+      ws.onopen = () => console.log('Connected');
+      ws.onmessage = (e) => handleMessage(JSON.parse(e.data));
+      ws.onclose = () => setTimeout(connect, 3000);
+    }
+
+    function send(type, data) {
+      if (ws?.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type, data }));
+      }
+    }
+
+    function handleMessage(msg) {
+      console.log('Received:', msg.type);
+      
+      switch (msg.type) {
+        case 'room_created':
+          currentRoom = msg.data.roomId;
+          gameState = { players: [], phase: 'waiting', round: 0, nightQueue: [], currentScript: 'trouble-brewing' };
+          showRoomUI();
+          break;
+          
+        case 'storyteller_joined':
+          currentRoom = msg.data.roomId;
+          gameState = msg.data.state;
+          showRoomUI();
+          updateGrimoire();
+          break;
+          
+        case 'update_players':
+          gameState.players = msg.data.players;
+          updateGrimoire();
+          updatePlayerList();
+          break;
+          
+        case 'roles_distributed':
+          gameState.players = msg.data.players;
+          updateGrimoire();
+          alert(`身份分配完成！平衡性: ${(msg.data.balanceScore * 100).toFixed(0)}%`);
+          break;
+          
+        case 'night_started':
+          gameState.nightQueue = msg.data.queue;
+          gameState.phase = 'night';
+          gameState.round = msg.data.round;
+          updateNightPanel();
+          break;
+          
+        case 'ability_result':
+          showAbilityResult(msg.data);
+          break;
+      }
+    }
+
+    // 显示房间UI
+    function showRoomUI() {
+      document.getElementById('room-setup').classList.add('hidden');
+      document.getElementById('script-section').classList.remove('hidden');
+      document.getElementById('players-section').classList.remove('hidden');
+      document.getElementById('automation-section').classList.remove('hidden');
+      document.getElementById('join-link-section').classList.remove('hidden');
+      
+      document.getElementById('room-id-display').textContent = currentRoom;
+      document.getElementById('player-join-link').value = 
+        `${window.location.origin}/player.html?room=${currentRoom}`;
+    }
+
+    // 更新魔典圆形布局
+    function updateGrimoire() {
+      const container = document.getElementById('grimoire-circle');
+      container.innerHTML = '';
+      
+      const playerCount = gameState.players.length;
+      if (playerCount === 0) return;
+      
+      const radius = Math.min(window.innerWidth, window.innerHeight) * 0.35;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      
+      // 角色类型颜色映射
+      const roleColors = {
+        'townsfolk': '#10b981',  // 绿色 - 镇民
+        'outsider': '#3b82f6',   // 蓝色 - 外来者
+        'minion': '#f97316',     // 橙色 - 爪牙
+        'demon': '#ef4444'       // 红色 - 恶魔
+      };
+      
+      gameState.players.forEach((player, index) => {
+        const angle = (index / playerCount) * 2 * Math.PI - Math.PI / 2;
+        const x = centerX + radius * Math.cos(angle) - 40;
+        const y = centerY + radius * Math.sin(angle) - 40;
+        
+        // 根据阵营确定边框颜色
+        let borderColor = '#d4af37';
+        if (player.alignment === 'evil') {
+          borderColor = '#ef4444';
+        } else if (player.alignment === 'good') {
+          borderColor = '#10b981';
+        }
+        
+        const token = document.createElement('div');
+        token.className = `token ${player.alive ? '' : 'dead'} ${player.poisoned ? 'poisoned' : ''} ${player.drunk ? 'drunk' : ''}`;
+        token.style.left = `${x}px`;
+        token.style.top = `${y}px`;
+        token.innerHTML = `
+          <div class="token-inner" style="border-color: ${borderColor}">
+            <div class="text-2xl font-bold text-amber-500">${player.seat}</div>
+            <div class="text-xs text-slate-400 truncate w-full text-center px-1">${player.roleName || '?'}</div>
+            ${player.poisoned ? '<i class="fa-solid fa-droplet text-purple-500 text-xs absolute top-1 right-1"></i>' : ''}
+            ${player.drunk ? '<i class="fa-solid fa-beer-mug-empty text-orange-500 text-xs absolute top-1 left-1"></i>' : ''}
+            ${!player.alive ? '<i class="fa-solid fa-skull text-red-500 text-xs absolute bottom-1"></i>' : ''}
+          </div>
+        `;
+        
+        token.addEventListener('click', () => showTokenModal(player));
+        container.appendChild(token);
+      });
+      
+      document.getElementById('player-count').textContent = playerCount;
+    }
+
+    // 更新玩家列表
+    function updatePlayerList() {
+      const list = document.getElementById('player-list');
+      list.innerHTML = gameState.players.map(p => `
+        <div class="flex justify-between items-center text-sm bg-slate-800/50 rounded px-2 py-1">
+          <span>${p.seat}号 ${p.roleName || '未分配'}</span>
+          <span class="${p.alive ? 'text-emerald-500' : 'text-red-500'}">
+            <i class="fa-solid fa-${p.alive ? 'heart' : 'skull'}"></i>
+          </span>
+        </div>
+      `).join('');
+    }
+
+    // 显示令牌详情
+    function showTokenModal(player) {
+      selectedToken = player;
+      document.getElementById('modal-seat').textContent = player.seat;
+      document.getElementById('modal-name').textContent = player.name;
+      document.getElementById('modal-role').textContent = player.roleName || '未分配';
+      document.getElementById('alive-text').textContent = player.alive ? '存活' : '死亡';
+      document.getElementById('token-modal').classList.remove('hidden');
+    }
+
+    // 更新夜间面板
+    function updateNightPanel() {
+      if (!gameState.nightQueue || gameState.nightQueue.length === 0) {
+        document.getElementById('night-section').classList.add('hidden');
+        return;
+      }
+      
+      document.getElementById('night-section').classList.remove('hidden');
+      
+      const completed = gameState.nightQueue.filter(a => a.status === 'completed').length;
+      const total = gameState.nightQueue.length;
+      const percentage = (completed / total * 100).toFixed(0);
+      
+      document.getElementById('night-progress').textContent = `${completed}/${total}`;
+      document.getElementById('night-progress-bar').style.width = `${percentage}%`;
+      
+      const queue = document.getElementById('night-queue');
+      queue.innerHTML = gameState.nightQueue.map(action => {
+        const statusIcon = {
+          'pending': 'fa-circle text-slate-600',
+          'waiting': 'fa-spinner fa-spin text-yellow-400',
+          'completed': 'fa-check-circle text-green-400'
+        }[action.status];
+        
+        return `
+          <div class="bg-slate-800/50 rounded-lg px-3 py-2 flex justify-between items-center text-sm">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid ${statusIcon}"></i>
+              <span>${action.seat ? action.seat + '号 - ' : ''}${action.character?.name || action.description}</span>
+            </div>
+            ${action.status === 'pending' && action.seat ? `
+              <button onclick="sendActionPrompt(${action.seat})" class="text-indigo-400 hover:text-indigo-300 text-xs px-2 py-1 bg-indigo-900/30 rounded">
+                发送
+              </button>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 发送行动提示
+    window.sendActionPrompt = function(seat) {
+      send('mark_action_waiting', { seat });
+      const action = gameState.nightQueue.find(a => a.seat === seat);
+      if (action) {
+        send('player_action', { 
+          seat, 
+          action: action.character.id,
+          data: {
+            role: action.character.name,
+            ability: action.character.ability,
+            actionType: action.character.actionType
+          }
+        });
+      }
+    };
+
+    // 显示能力结果
+    function showAbilityResult(data) {
+      if (data.error) {
+        alert(`错误: ${data.error}`);
+        return;
+      }
+      
+      const message = prompt(`${data.seat}号 ${data.role} 的结果:\n\n${data.result.message}\n\n编辑后发送给玩家:`, data.result.message);
+      if (message) {
+        send('send_message', { seat: data.seat, message });
+        send('mark_action_completed', { seat: data.seat, result: message });
+      }
+    }
+
+    // 事件监听
+    document.getElementById('btn-create-room').addEventListener('click', () => send('create_room', {}));
+    document.getElementById('btn-join-room').addEventListener('click', () => {
+      const roomId = document.getElementById('join-room-input').value.toUpperCase();
+      if (roomId) send('storyteller_join', { roomId, password: '' });
+    });
+    document.getElementById('btn-auto-assign').addEventListener('click', () => send('auto_distribute_roles', {}));
+    document.getElementById('btn-night').addEventListener('click', () => send('start_night', {}));
+    document.getElementById('btn-day').addEventListener('click', () => send('next_phase', { phase: 'day', round: gameState.round }));
+    document.getElementById('btn-close-modal').addEventListener('click', () => {
+      document.getElementById('token-modal').classList.add('hidden');
+    });
+    document.getElementById('btn-toggle-alive').addEventListener('click', () => {
+      if (selectedToken) {
+        selectedToken.alive = !selectedToken.alive;
+        send('update_player_status', { seat: selectedToken.seat, alive: selectedToken.alive });
+        updateGrimoire();
+        document.getElementById('token-modal').classList.add('hidden');
+      }
+    });
+    document.getElementById('btn-copy-link').addEventListener('click', () => {
+      const link = document.getElementById('player-join-link');
+      link.select();
+      document.execCommand('copy');
+      alert('链接已复制！');
+    });
+
+    // 窗口大小改变时重新布局
+    window.addEventListener('resize', () => {
+      if (gameState.players.length > 0) updateGrimoire();
+    });
+
+    connect();
+  </script>
+</body>
+</html>

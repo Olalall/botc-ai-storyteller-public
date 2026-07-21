@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.916Z",
+  "source": {
+    "url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-release/main/script-schema.json",
+    "kind": "official",
+    "trustLevel": "T0",
+    "retrievedAt": "2026-07-10T17:34:21.916Z",
+    "author": null,
+    "version": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-release/main/script-schema.json",
+    "notes": null,
+    "httpStatus": 200,
+    "etag": "\"dc27bb89525a4409c85d92381512393196f6b1aa4824d1b773ca5c3d32ea4cf0\"",
+    "lastModified": null
+  },
+  "title": "Blood on the Clocktower Custom Script",
+  "minItems": 5,
+  "maxItems": 201
+}

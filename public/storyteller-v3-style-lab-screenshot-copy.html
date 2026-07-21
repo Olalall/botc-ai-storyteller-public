@@ -1,0 +1,159 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>说书人 V3 · 截图还原 UI 试验</title>
+  <link rel="stylesheet" href="/css/storyteller-v3/style-lab-screenshot-copy.css" />
+</head>
+<body>
+  <main class="copy-shell" aria-label="截图还原 UI 试验">
+    <section class="hud-counts" aria-label="玩家统计">
+      <div><b>7</b><span class="blue">民</span> <b>2</b><span class="blue">外</span> <b>2</b><span class="red">爪</span> <b>1</b><span class="red">恶</span></div>
+      <div><b>12</b><span class="icon">♟</span><b>11</b><span class="heart">♥</span><b>12</b><span class="check">▣</span></div>
+    </section>
+
+    <button class="gear" type="button" aria-label="设置">⚙</button>
+
+    <aside class="right-menu" aria-label="右侧菜单">
+      <div class="menu-tabs" aria-hidden="true">
+        <span class="tab active">染</span><span class="tab">♟</span><span class="tab">🎭</span><span class="tab">↻</span><span class="tab">⚒</span>
+      </div>
+      <h2 id="menu-title">角色</h2>
+      <button type="button" data-panel="scripts">选择剧本 <kbd>[P]</kbd></button>
+      <button type="button" data-panel="assign">分配角色 <kbd>[O]</kbd></button>
+      <button type="button">发送角色 <kbd>[I]</kbd></button>
+      <button type="button">传奇/奇遇角色 <kbd>[L]</kbd></button>
+      <button type="button">重置角色 <kbd>🗑</kbd></button>
+      <button type="button" data-panel="roles">角色能力表 <kbd>[R]</kbd></button>
+      <button type="button">夜晚顺序表 <kbd>[N]</kbd></button>
+    </aside>
+
+    <section class="grimoire" aria-label="魔典圆盘">
+      <img class="edition-logo" src="/clocktower-assets/web/editions/tb.png" alt="暗流涌动" />
+      <div id="seat-ring" class="seat-ring"></div>
+    </section>
+
+    <section class="bluff-panel" aria-label="恶魔伪装">
+      <button class="close-dot" type="button" aria-label="关闭">×</button>
+      <h2>恶魔的伪装</h2>
+      <div class="bluff-list">
+        <article class="mini-token"><img src="/clocktower-assets/role_icon/washerwoman.png" alt="洗衣妇"><span>洗衣妇</span></article>
+        <article class="mini-token"><img src="/clocktower-assets/role_icon/fortune_teller.png" alt="占卜师"><span>占卜师</span></article>
+        <article class="mini-token"><img src="/clocktower-assets/role_icon/ravenkeeper.png" alt="守鸦人"><span>守鸦人</span></article>
+      </div>
+    </section>
+
+    <section id="assign" class="modal-panel is-hidden" aria-label="分配角色浮层">
+      <button class="window-btn min" type="button">−</button>
+      <button class="window-btn close" type="button" data-close>×</button>
+      <h1>为当前 12 个玩家选择角色:</h1>
+      <div class="assign-layout">
+        <div class="quota-stack">
+          <span class="quota blue">7 / 7</span>
+          <span class="quota blue">2 / 2</span>
+          <span class="quota red">2 / 2</span>
+          <span class="quota red">1 / 1</span>
+        </div>
+        <div id="role-pick-grid" class="role-pick-grid"></div>
+      </div>
+      <label class="duplicate"><input type="checkbox"> 允许重复角色</label>
+      <div class="modal-actions">
+        <button type="button">♟ 随机分配 12 个角色</button>
+        <button type="button">⤨ 随机角色</button>
+      </div>
+      <span class="warn-mark">⚠</span>
+    </section>
+
+    <section id="scripts" class="modal-panel script-panel is-hidden" aria-label="选择剧本浮层">
+      <button class="window-btn min" type="button">−</button>
+      <button class="window-btn close" type="button" data-close>×</button>
+      <nav class="script-tabs" aria-label="剧本分类">
+        <button class="active">官方剧本</button>
+        <button>缝合剧本</button>
+        <button>原创角色剧本</button>
+      </nav>
+      <p class="script-intro">由官方精心打磨的剧本，兼顾趣味性与平衡性，适合所有玩家</p>
+      <div class="script-grid">
+        <article><img src="/clocktower-assets/web/editions/tb.png" alt="暗流涌动"><b>暗流涌动</b><span>支持 5 - 15</span><span>难度：初学者</span><button>剧本简介&gt;&gt;</button></article>
+        <article><img src="/clocktower-assets/web/editions/bmr.png" alt="黯月初升"><b>黯月初升</b><span>支持 7 - 15</span><span>难度：中等</span><button>剧本简介&gt;&gt;</button></article>
+        <article><img src="/clocktower-assets/web/editions/snv.png" alt="梦殒春宵"><b>梦殒春宵</b><span>支持 7 - 15</span><span>难度：中等</span><button>剧本简介&gt;&gt;</button></article>
+        <article><img src="/clocktower-assets/web/editions/custom.png" alt="自定义"><b>无上愉悦</b><span>支持 5 - 6</span><span>难度：初学者</span><button>剧本简介&gt;&gt;</button></article>
+        <article><img src="/clocktower-assets/web/editions/custom.png" alt="自定义"><b>窃窃私语</b><span>支持 5 - 6</span></article>
+        <article><img src="/clocktower-assets/web/editions/custom.png" alt="自定义"><b>实验性角色（非剧本）</b></article>
+        <article><img src="/clocktower-assets/web/editions/custom.png" alt="自定义"><b>华灯初上</b></article>
+        <article><img src="/clocktower-assets/web/editions/custom.png" alt="自定义"><b>山雨欲来（非剧本）</b></article>
+      </div>
+    </section>
+
+    <section id="roles" class="modal-panel roles-panel is-hidden" aria-label="角色列表浮层">
+      <button class="window-btn min" type="button">−</button>
+      <button class="window-btn close" type="button" data-close>×</button>
+      <h1>角色列表 <span>▣</span> 暗流涌动 by The Pandemonium Institute</h1>
+      <div class="roles-content">
+        <aside class="role-class-bars"><span class="town">镇<br>民</span><span class="outsider">外<br>来<br>者</span><span class="minion">爪<br>牙</span><span class="demon">恶<br>魔</span></aside>
+        <div id="role-list" class="role-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const seats = [
+      ['washerwoman','洗衣妇','12',41,24,'blue','5'], ['empath','共情者','1',50,12,'red','4'], ['poisoner','投毒者','2',59,24,'black','1'],
+      ['monk','僧侣','3',67,35,'red','2'], ['saint','圣徒','4',67,53,'blue',''], ['chef','厨师','5',63,67,'blue','4'],
+      ['scarlet_woman','红唇女郎','6',57,79,'red','3'], ['drunk','酒鬼','7',50,86,'',''], ['investigator','调查员','8',43,79,'blue','3'],
+      ['librarian','图书管理员','9',37,67,'blue','2'], ['recluse','隐士','10',33,53,'',''], ['undertaker','送葬者','11',33,35,'red','6']
+    ];
+    const roles = [
+      ['washerwoman','洗衣妇','town'],['librarian','图书管理员','town'],['investigator','调查员','town'],['chef','厨师','town'],['empath','共情者','town'],['fortune_teller','占卜师','town'],['undertaker','送葬者','town'],['monk','僧侣','town'],['ravenkeeper','守鸦人','town'],['virgin','贞洁者','town'],['slayer','猎手','town'],['soldier','士兵','town'],['mayor','镇长','town'],['butler','管家','outsider'],['drunk','酒鬼','outsider'],['recluse','隐士','outsider'],['saint','圣徒','outsider'],['poisoner','投毒者','minion'],['spy','间谍','minion'],['scarlet_woman','红唇女郎','minion'],['baron','男爵','minion'],['imp','小恶魔','demon']
+    ];
+    const ability = {
+      washerwoman:'在你的首个夜晚，你会得知两名玩家和一个镇民角色；这两名玩家之一是该角色。',
+      librarian:'在你的首个夜晚，你会得知两名玩家和一个外来者角色；这两名玩家之一是该角色。',
+      investigator:'在你的首个夜晚，你会得知两名玩家和一个爪牙角色；这两名玩家之一是该角色。',
+      chef:'在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。',
+      empath:'每个夜晚，你会得知与你邻近的两名存活玩家中邪恶玩家的数量。',
+      fortune_teller:'每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。',
+      undertaker:'每个夜晚，你会得知今天白天死于处决的玩家的角色。',
+      monk:'每个夜晚，选择除你以外的一名玩家：恶魔的负面能力对他无效。',
+      ravenkeeper:'如果你在夜晚死亡，你会被唤醒，然后选择一名玩家：你会得知他的角色。',
+      virgin:'每局游戏限一次，首位公开提名你的镇民会立刻被处决。',
+      slayer:'每局游戏限一次，白天你可以公开选择一名玩家：如果他是恶魔，他死亡。',
+      soldier:'恶魔的负面能力对你无效。', mayor:'如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。',
+      butler:'每个夜晚，选择一名玩家：明天白天，只有他投票时你才能投票。', drunk:'你不知道你是酒鬼。你以为你是一个镇民角色，但其实不是。', recluse:'你可能会被当作邪恶阵营、爪牙角色或恶魔角色。', saint:'如果你死于处决，你的阵营落败。',
+      poisoner:'每个夜晚，选择一名玩家：他在今晚和明天白天中毒。', spy:'每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色。', scarlet_woman:'如果大于等于五名玩家存活时恶魔死亡，你变成那个恶魔。', baron:'会有额外的外来者在场。', imp:'每个夜晚，选择一名玩家：他死亡。如果你以这种方式自杀，一名爪牙会变成小恶魔。'
+    };
+    const ring = document.querySelector('#seat-ring');
+    seats.forEach(([id,name,no,x,y,badgeColor,badge]) => {
+      const seat = document.createElement('article');
+      seat.className = 'seat'; seat.style.left = x + '%'; seat.style.top = y + '%';
+      seat.innerHTML = `<div class="token ${id === 'poisoner' ? 'marked' : ''}"><img src="/clocktower-assets/role_icon/${id}.png" alt="${name}"><span>${name}</span>${badge ? `<i class="badge ${badgeColor}">${badge}</i>` : ''}</div><b class="seat-label">${no}.　空座位</b>`;
+      ring.appendChild(seat);
+    });
+    const pickGrid = document.querySelector('#role-pick-grid');
+    roles.forEach(([id,name,type]) => {
+      const item = document.createElement('article');
+      item.className = `pick ${type}`;
+      item.innerHTML = `<img src="/clocktower-assets/role_icon/${id}.png" alt="${name}"><span>${name}</span>`;
+      pickGrid.appendChild(item);
+    });
+    const roleList = document.querySelector('#role-list');
+    roles.forEach(([id,name,type], index) => {
+      const item = document.createElement('article');
+      item.className = `role-line ${type}`;
+      item.innerHTML = `<img src="/clocktower-assets/role_icon/${id}.png" alt="${name}"><div><h3>${name}</h3><p>${ability[id]}</p></div><small>${index + 1}. 空座位</small>`;
+      roleList.appendChild(item);
+    });
+    document.querySelectorAll('[data-panel]').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.modal-panel').forEach(panel => panel.classList.add('is-hidden'));
+      document.querySelector('#' + btn.dataset.panel).classList.remove('is-hidden');
+    }));
+    document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => btn.closest('.modal-panel').classList.add('is-hidden')));
+    const initialPanel = new URLSearchParams(location.search).get('panel');
+    if (initialPanel && document.querySelector('#' + initialPanel)) {
+      document.querySelector('#' + initialPanel).classList.remove('is-hidden');
+    }
+  </script>
+</body>
+</html>
+

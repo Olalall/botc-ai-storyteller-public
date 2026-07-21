@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "botc.github-full-upload.v1",
+  "generatedAt": "2026-07-21T07:45:17.537840+00:00",
+  "outputDir": "dist/github-full-project",
+  "zipPath": "dist/botc-ai-storyteller-github-full.zip",
+  "fileCount": 222,
+  "testsDirectoryRemoved": true,
+  "runtimeDataDir": "data/runtime",
+  "privacyExcluded": [
+    ".env",
+    ".git",
+    "node_modules",
+    "logs",
+    "room snapshots",
+    "generated reports",
+    "game records",
+    "backups"
+  ],
+  "includedTopLevel": [
+    ".env.example",
+    ".gitignore",
+    "Dockerfile",
+    "GITHUB_UPLOAD_CHECKLIST.md",
+    "GITHUB_UPLOAD_MANIFEST.json",
+    "LICENSE",
+    "PUBLIC_PACKAGE_MANIFEST.json",
+    "README.md",
+    "data",
+    "deploy.sh",
+    "docker-compose.yml",
+    "modules",
+    "package.json",
+    "public",
+    "scripts",
+    "server.js",
+    "start.sh"
+  ],
+  "totalBytes": 30500436
+}

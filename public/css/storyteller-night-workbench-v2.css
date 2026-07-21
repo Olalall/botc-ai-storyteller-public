@@ -1,0 +1,141 @@
+/* V2.5 night workbench ergonomics: one tablet scroller and persistent context. */
+#night-tool-modal .night-tool-context-strip {
+  display: none;
+}
+
+/* Keep touch targets at their declared size while the result workbench opens. */
+#night-tool-modal.open .modal {
+  animation: none !important;
+  transform: none !important;
+}
+
+#night-tool-modal .night-candidate-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#night-tool-modal .night-candidate-actions [data-confirm-candidate] {
+  grid-column: 1 / -1;
+}
+
+#night-tool-modal .night-candidate-actions .layout-control-button {
+  min-height: 44px !important;
+  border: 1px solid rgba(220, 176, 103, 0.46) !important;
+  background: linear-gradient(180deg, rgba(83, 53, 29, 0.94), rgba(40, 24, 15, 0.96)) !important;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.24) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.72) !important;
+}
+
+#night-tool-modal .night-candidate-actions .layout-control-button.is-secondary {
+  color: #f4d8a3 !important;
+  border-color: rgba(214, 174, 106, 0.38) !important;
+  background: rgba(54, 33, 20, 0.9) !important;
+}
+
+#night-tool-modal .night-candidate-actions .layout-control-button.is-danger {
+  color: #ffd8ce !important;
+  border-color: rgba(190, 91, 72, 0.56) !important;
+  background: rgba(84, 34, 29, 0.9) !important;
+}
+
+#night-tool-modal .night-candidate-actions .layout-control-button:hover:not(:disabled),
+#night-tool-modal .night-candidate-actions .layout-control-button:focus-visible:not(:disabled) {
+  filter: brightness(1.08) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+#night-tool-modal .night-tool-log-panel {
+  grid-template-rows: auto minmax(0, 1fr) !important;
+}
+
+#night-tool-modal .night-tool-log-drawer {
+  border: 1px solid rgba(214, 174, 106, 0.2);
+  border-radius: 10px;
+  background: rgba(10, 6, 4, 0.46);
+  overflow: hidden;
+}
+
+#night-tool-modal .night-tool-log-drawer > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 12px;
+  color: #f5d9a0;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+#night-tool-modal .night-tool-log-drawer > summary::marker {
+  color: rgba(245, 217, 160, 0.72);
+}
+
+#night-tool-modal .night-tool-log-drawer #night-tool-log {
+  max-height: 150px;
+  margin: 0 10px 10px;
+  overflow: auto;
+}
+
+#night-tool-modal #btn-night-tool-start:disabled,
+#night-tool-modal #btn-night-tool-prepare:disabled {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  #night-tool-modal .night-tool-context-strip {
+    position: sticky;
+    z-index: 8;
+    top: 0;
+    grid-column: 1 / -1;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 1px solid rgba(226, 181, 96, 0.54);
+    border-radius: 11px;
+    background: linear-gradient(180deg, rgba(57, 32, 13, 0.98), rgba(20, 11, 6, 0.98));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.48);
+  }
+
+  #night-tool-modal .night-tool-context-strip span,
+  #night-tool-modal .night-tool-context-strip b {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #night-tool-modal .night-tool-context-strip span {
+    color: #fff0c8;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  #night-tool-modal .night-tool-context-strip b {
+    color: rgba(255, 222, 157, 0.78);
+    font-size: 12px;
+  }
+
+  #night-tool-modal .night-tool-order-list,
+  #night-tool-modal .night-tool-current-card,
+  #night-tool-modal .night-tool-step-guide,
+  #night-tool-modal #night-tool-summary,
+  #night-tool-modal .night-tool-log-drawer #night-tool-log {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #night-tool-modal .night-tool-log-panel {
+    display: block !important;
+  }
+
+  #night-tool-modal .night-tool-log-drawer {
+    margin-bottom: 12px;
+  }
+}

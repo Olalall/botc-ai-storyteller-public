@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.916Z",
+  "manifestId": "stage0-community-script-fixtures",
+  "scope": "community-script-imports",
+  "sourceReport": "not-included-in-github-full-upload",
+  "datasets": [
+    {
+      "datasetId": "catfishing",
+      "file": "data/runtime/scripts/normalized/catfishing-import.json",
+      "kind": "community-script-import",
+      "scriptId": "catfishing",
+      "displayName": "Catfishing / 瓦釜雷鸣",
+      "status": "supported_or_importable",
+      "officialRoleCount": 30,
+      "homebrewRoleCount": 0
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.916Z",
+  "manifestId": "stage0-official-normalized-fixtures",
+  "scope": "official-normalized",
+  "sourceReport": "not-included-in-github-full-upload",
+  "datasets": [
+    {
+      "datasetId": "officialRoles",
+      "file": "data/runtime/official/normalized/official-roles.json",
+      "kind": "official-roles",
+      "itemCount": 181,
+      "sourceKey": "roles"
+    },
+    {
+      "datasetId": "officialJinxes",
+      "file": "data/runtime/official/normalized/official-jinxes.json",
+      "kind": "official-jinxes",
+      "itemCount": 27,
+      "sourceKey": "jinxes"
+    },
+    {
+      "datasetId": "officialNightSheet",
+      "file": "data/runtime/official/normalized/official-nightsheet.json",
+      "kind": "official-nightsheet",
+      "rootCount": 2,
+      "sourceKey": "nightsheet"
+    },
+    {
+      "datasetId": "scriptSchema",
+      "file": "data/runtime/official/normalized/script-schema-metadata.json",
+      "kind": "official-script-schema",
+      "schemaTitle": "Blood on the Clocktower Custom Script",
+      "sourceKey": "schema"
+    }
+  ]
+}

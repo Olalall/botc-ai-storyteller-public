@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V3 Style Lab · Dark Stage</title>
+  <link rel="stylesheet" href="/css/storyteller-v3/style-lab-dark-stage.css">
+</head>
+<body>
+  <main class="stage-lab" aria-label="V3 暗黑主舞台原型">
+    <header class="stage-top" aria-label="局面状态">
+      <section class="stage-brand">
+        <div class="stage-sigil" aria-hidden="true">☾</div>
+        <div>
+          <h1>说书人辅助工具 · V3</h1>
+          <p>第 1 夜 · 夜晚裁决</p>
+        </div>
+      </section>
+      <section class="stage-stats" aria-label="房间信息">
+        <div><span>房间</span><strong>AUQJQ</strong></div>
+        <div><span>玩家</span><strong>12/12</strong></div>
+        <div><span>存活</span><strong>10</strong></div>
+        <div><span>待确认</span><strong>3</strong></div>
+      </section>
+      <nav class="stage-tools" aria-label="工具">
+        <button type="button">公告</button>
+        <button type="button">日记</button>
+        <button type="button">设置</button>
+      </nav>
+    </header>
+
+    <section class="stage-scene" aria-label="当前主任务">
+      <aside class="stage-rail" aria-label="夜晚顺序">
+        <strong>顺序</strong>
+        <ol>
+          <li class="active"><span>1</span><em>恶魔</em></li>
+          <li class="done"><span>2</span><em>守护</em></li>
+          <li class="done"><span>3</span><em>先知</em></li>
+          <li><span>4</span><em>毒</em></li>
+          <li><span>5</span><em>刺客</em></li>
+        </ol>
+      </aside>
+
+      <section class="stage-board" aria-label="魔典主舞台">
+        <div class="stage-orbit" aria-hidden="true"></div>
+        <div class="stage-seat seat-1 alive"><span>1</span><strong>阿狸</strong></div>
+        <div class="stage-seat seat-2 alive"><span>2</span><strong>小葵</strong></div>
+        <button type="button" class="stage-seat seat-3 target alive"><span>3</span><strong>老橙</strong></button>
+        <div class="stage-seat seat-4 alive"><span>4</span><strong>小蓝</strong></div>
+        <div class="stage-seat seat-5 alive"><span>5</span><strong>伊莎</strong></div>
+        <div class="stage-seat seat-6 alive"><span>6</span><strong>乔纳</strong></div>
+        <div class="stage-seat seat-7 alive"><span>7</span><strong>老白</strong></div>
+        <div class="stage-seat seat-8 dead"><span>8</span><strong>小绿</strong></div>
+        <div class="stage-seat seat-9 alive"><span>9</span><strong>小粉</strong></div>
+        <div class="stage-seat seat-10 alive"><span>10</span><strong>阿飞</strong></div>
+        <div class="stage-seat seat-11 alive"><span>11</span><strong>莫丽</strong></div>
+        <button type="button" class="stage-seat seat-12 actor alive"><span>12</span><strong>贝拉</strong></button>
+
+        <article class="stage-focus" aria-label="当前处理">
+          <div class="stage-role-mark" aria-hidden="true">♛</div>
+          <p>当前</p>
+          <h2>恶魔伪装</h2>
+          <div class="stage-current">
+            <span>行动者</span><strong>12 贝拉</strong>
+            <span>目标</span><strong>3 老橙</strong>
+          </div>
+          <div class="stage-tags" aria-label="当前状态">
+            <b>玩家提交</b>
+            <b>待确认</b>
+            <b>私密</b>
+          </div>
+        </article>
+      </section>
+
+      <aside class="stage-drawer" aria-label="待确认结果">
+        <div class="drawer-head">
+          <span>待确认</span>
+          <strong>3</strong>
+        </div>
+        <button type="button" class="drawer-card warn">
+          <span>魔香师</span>
+          <strong>5 → 3</strong>
+          <em>中毒</em>
+        </button>
+        <button type="button" class="drawer-card">
+          <span>守护人</span>
+          <strong>7 → 9</strong>
+          <em>确认</em>
+        </button>
+        <button type="button" class="drawer-card done">
+          <span>猎人</span>
+          <strong>4 → 自己</strong>
+          <em>有效</em>
+        </button>
+      </aside>
+    </section>
+
+    <footer class="stage-actions" aria-label="主操作">
+      <button type="button" class="primary">确认结果</button>
+      <button type="button">下一位</button>
+      <button type="button" class="ghost">打开详情</button>
+    </footer>
+  </main>
+</body>
+</html>

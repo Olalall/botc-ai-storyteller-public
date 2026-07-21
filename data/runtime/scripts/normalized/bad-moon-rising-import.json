@@ -1,0 +1,651 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.788Z",
+  "scriptId": "bad-moon-rising",
+  "displayName": "Bad Moon Rising",
+  "source": {
+    "kind": "official-derived",
+    "trustLevel": "T0",
+    "basis": "data/runtime/official/normalized/official-roles.json",
+    "edition": "bmr"
+  },
+  "status": "supported_or_importable",
+  "roleCount": 30,
+  "officialRoleCount": 30,
+  "homebrewRoleCount": 0,
+  "invalidEntryCount": 0,
+  "unsupportedRoleIds": [],
+  "unsupportedRuleSupport": [
+    "grandmother",
+    "sailor",
+    "chambermaid",
+    "innkeeper",
+    "gambler",
+    "exorcist",
+    "gossip",
+    "courtier",
+    "professor",
+    "minstrel",
+    "tealady",
+    "fool",
+    "pacifist",
+    "goon",
+    "lunatic",
+    "tinker",
+    "moonchild",
+    "godfather",
+    "devilsadvocate",
+    "assassin",
+    "mastermind",
+    "pukka",
+    "shabaloth",
+    "po",
+    "zombuul",
+    "matron",
+    "judge",
+    "apprentice",
+    "bishop",
+    "voudon"
+  ],
+  "teamCounts": {
+    "townsfolk": 13,
+    "outsider": 4,
+    "minion": 4,
+    "demon": 4,
+    "traveller": 5
+  },
+  "entries": [
+    {
+      "kind": "official-id",
+      "id": "grandmother",
+      "display": {
+        "name": "Grandmother",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "You start knowing a good player & their character. If the Demon kills them, you die too.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Grandchild",
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "sailor",
+      "display": {
+        "name": "Sailor",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Each night, choose an alive player: either you or they are drunk until dusk. You can't die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Drunk"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "chambermaid",
+      "display": {
+        "name": "Chambermaid",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "innkeeper",
+      "display": {
+        "name": "Innkeeper",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Safe",
+          "Safe",
+          "Drunk"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "gambler",
+      "display": {
+        "name": "Gambler",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Each night*, choose a player & guess their character: if you guess wrong, you die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "exorcist",
+      "display": {
+        "name": "Exorcist",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Each night*, choose a player (different to last night): the Demon, if chosen, learns who you are then doesn't wake tonight.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Chosen"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "gossip",
+      "display": {
+        "name": "Gossip",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Each day, you may make a public statement. Tonight, if it was true, a player dies.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "courtier",
+      "display": {
+        "name": "Courtier",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Drunk 3",
+          "Drunk 2",
+          "Drunk 1",
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "professor",
+      "display": {
+        "name": "Professor",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Alive",
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "minstrel",
+      "display": {
+        "name": "Minstrel",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Everyone Is Drunk"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "tealady",
+      "display": {
+        "name": "Tea Lady",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "If both your alive neighbors are good, they can't die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Cannot Die",
+          "Cannot Die"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "fool",
+      "display": {
+        "name": "Fool",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "The 1st time you die, you don't.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "pacifist",
+      "display": {
+        "name": "Pacifist",
+        "team": "townsfolk",
+        "edition": "bmr",
+        "ability": "Executed good players might not die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "goon",
+      "display": {
+        "name": "Goon",
+        "team": "outsider",
+        "edition": "bmr",
+        "ability": "Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Drunk"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "lunatic",
+      "display": {
+        "name": "Lunatic",
+        "team": "outsider",
+        "edition": "bmr",
+        "ability": "You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Chosen",
+          "Chosen",
+          "Chosen"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "tinker",
+      "display": {
+        "name": "Tinker",
+        "team": "outsider",
+        "edition": "bmr",
+        "ability": "You might die at any time.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "moonchild",
+      "display": {
+        "name": "Moonchild",
+        "team": "outsider",
+        "edition": "bmr",
+        "ability": "When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "godfather",
+      "display": {
+        "name": "Godfather",
+        "team": "minion",
+        "edition": "bmr",
+        "ability": "You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Died Today",
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": true,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "devilsadvocate",
+      "display": {
+        "name": "Devil's Advocate",
+        "team": "minion",
+        "edition": "bmr",
+        "ability": "Each night, choose a living player (different to last night): if executed tomorrow, they don't die.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Survives Execution"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "assassin",
+      "display": {
+        "name": "Assassin",
+        "team": "minion",
+        "edition": "bmr",
+        "ability": "Once per game, at night*, choose a player: they die, even if for some reason they could not.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead",
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "mastermind",
+      "display": {
+        "name": "Mastermind",
+        "team": "minion",
+        "edition": "bmr",
+        "ability": "If the Demon dies by execution (ending the game), play for 1 more day. If a player is then executed, their team loses.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "pukka",
+      "display": {
+        "name": "Pukka",
+        "team": "demon",
+        "edition": "bmr",
+        "ability": "Each night, choose a player: they are poisoned. The previously poisoned player dies then becomes healthy.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Poisoned",
+          "Poisoned",
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "shabaloth",
+      "display": {
+        "name": "Shabaloth",
+        "team": "demon",
+        "edition": "bmr",
+        "ability": "Each night*, choose 2 players: they die. A dead player you chose last night might be regurgitated.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead",
+          "Dead",
+          "Alive"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "po",
+      "display": {
+        "name": "Po",
+        "team": "demon",
+        "edition": "bmr",
+        "ability": "Each night*, you may choose a player: they die. If your last choice was no-one, choose 3 players tonight.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Dead",
+          "Dead",
+          "Dead",
+          "3 Attacks"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "zombuul",
+      "display": {
+        "name": "Zombuul",
+        "team": "demon",
+        "edition": "bmr",
+        "ability": "Each night*, if no-one died today, choose a player: they die. The 1st time you die, you live but register as dead.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Died Today",
+          "Dead"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "matron",
+      "display": {
+        "name": "Matron",
+        "team": "traveller",
+        "edition": "bmr",
+        "ability": "Each day, you may choose up to 3 sets of 2 players to swap seats. Players may not leave their seats to talk in private.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "judge",
+      "display": {
+        "name": "Judge",
+        "team": "traveller",
+        "edition": "bmr",
+        "ability": "Once per game, if another player nominated, you may choose to force the current execution to pass or fail.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "No Ability"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "apprentice",
+      "display": {
+        "name": "Apprentice",
+        "team": "traveller",
+        "edition": "bmr",
+        "ability": "On your 1st night, you gain a Townsfolk ability (if good), or a Minion ability (if evil).",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Is The Apprentice"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "bishop",
+      "display": {
+        "name": "Bishop",
+        "team": "traveller",
+        "edition": "bmr",
+        "ability": "Only the Storyteller can nominate. At least 1 opposing player must be nominated each day.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [
+          "Nominate Good",
+          "Nominate Evil"
+        ],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    },
+    {
+      "kind": "official-id",
+      "id": "voudon",
+      "display": {
+        "name": "Voudon",
+        "team": "traveller",
+        "edition": "bmr",
+        "ability": "Only you & the dead can vote. They don't need a vote token to do so. A 50% majority isn't required.",
+        "firstNight": null,
+        "otherNight": null,
+        "reminders": [],
+        "remindersGlobal": [],
+        "setup": false,
+        "image": null
+      },
+      "executableRuleSupport": "not-verified-by-stage6-import-display-gate"
+    }
+  ],
+  "redlines": {
+    "canonicalKeys": "official-role-id",
+    "importDisplaySupportOnly": true,
+    "executableRuleAutomationOpened": false,
+    "aiIntegrationOpened": false,
+    "eventLogWritingOpened": false,
+    "authoritativeHistoryExpansionOpened": false,
+    "persistedRecoverySnapshotsOpened": false,
+    "bluffToolingOpened": false,
+    "homebrewAutomationOpened": false,
+    "broaderAutomationOpened": false
+  }
+}

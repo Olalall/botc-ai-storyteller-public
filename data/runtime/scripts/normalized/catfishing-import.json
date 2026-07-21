@@ -1,0 +1,192 @@
+{
+  "generatedAt": "2026-07-10T17:34:21.916Z",
+  "item": {
+    "scriptId": "catfishing",
+    "displayName": "Catfishing / 瓦釜雷鸣",
+    "source": {
+      "url": "https://www.botcscripts.com/script/3/11.1.1/download",
+      "kind": "community-json",
+      "trustLevel": "T1",
+      "retrievedAt": "2026-07-10T17:34:21.916Z",
+      "author": "Emily",
+      "version": "11.1.1",
+      "notes": "Validated only for importability against official role IDs.",
+      "httpStatus": 200,
+      "etag": null,
+      "lastModified": null
+    },
+    "metadata": {
+      "id": "_meta",
+      "name": "Catfishing",
+      "author": "Emily"
+    },
+    "status": "supported_or_importable",
+    "officialRoleCount": 30,
+    "homebrewRoleCount": 0,
+    "invalidEntryCount": 0,
+    "missingOfficialIds": [],
+    "deprecatedOfficialObjects": [
+      "investigator",
+      "chef",
+      "grandmother",
+      "balloonist",
+      "dreamer",
+      "fortuneteller",
+      "snakecharmer",
+      "gambler",
+      "savant",
+      "philosopher",
+      "ravenkeeper",
+      "amnesiac",
+      "cannibal",
+      "drunk",
+      "recluse",
+      "sweetheart",
+      "mutant",
+      "lunatic",
+      "godfather",
+      "cerenovus",
+      "pithag",
+      "widow",
+      "imp",
+      "vigormortis",
+      "fanggu",
+      "apprentice",
+      "barista",
+      "beggar",
+      "bonecollector",
+      "harlot"
+    ],
+    "entries": [
+      {
+        "kind": "metadata",
+        "id": "_meta",
+        "raw": {
+          "id": "_meta",
+          "name": "Catfishing",
+          "author": "Emily"
+        }
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "investigator"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "chef"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "grandmother"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "balloonist"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "dreamer"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "fortuneteller"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "snakecharmer"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "gambler"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "savant"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "philosopher"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "ravenkeeper"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "amnesiac"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "cannibal"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "drunk"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "recluse"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "sweetheart"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "mutant"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "lunatic"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "godfather"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "cerenovus"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "pithag"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "widow"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "imp"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "vigormortis"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "fanggu"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "apprentice"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "barista"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "beggar"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "bonecollector"
+      },
+      {
+        "kind": "official-deprecated-object",
+        "id": "harlot"
+      }
+    ]
+  }
+}

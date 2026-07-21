@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V3 Style Lab · Dark Fantasy HUD</title>
+  <link rel="stylesheet" href="/css/storyteller-v3/style-lab-dark.css">
+</head>
+<body>
+  <main class="hud-lab" aria-label="V3 暗黑游戏 HUD 风格实验">
+    <header class="hud-topbar">
+      <section class="hud-brand" aria-label="应用名称">
+        <div class="hud-moon" aria-hidden="true">☾</div>
+        <div>
+          <h1>说书人辅助工具 · V3</h1>
+          <p>Dark Fantasy HUD Style Lab · 先锁视觉，再接业务</p>
+        </div>
+      </section>
+      <section class="hud-room" aria-label="房间状态">
+        <div class="hud-stat"><span>房间</span><strong>AUQJQ</strong></div>
+        <div class="hud-stat"><span>玩家</span><strong>12/12</strong></div>
+        <div class="hud-stat"><span>剧本</span><strong>Trouble Brewing</strong></div>
+        <div class="hud-stat"><span>阶段</span><strong>第 1 夜</strong></div>
+        <div class="hud-stat is-live"><span>连接</span><strong>同步中</strong></div>
+      </section>
+      <nav class="hud-tabs" aria-label="辅助工具">
+        <button type="button">公告</button>
+        <button type="button">日记</button>
+        <button type="button">私信</button>
+        <button type="button">设置</button>
+      </nav>
+    </header>
+
+    <section class="hud-stage" aria-label="主工作区">
+      <aside class="hud-panel hud-left" aria-label="夜晚顺序">
+        <div class="hud-panel-title">
+          <span>夜晚顺序</span>
+          <strong>1 / 6</strong>
+        </div>
+        <div class="hud-search">筛选角色或玩家</div>
+        <ol class="hud-night-list">
+          <li class="is-current"><span class="step">1</span><strong>恶魔伪装</strong><em>当前处理</em></li>
+          <li class="is-done"><span class="step">2</span><strong>守护者</strong><em>已完成</em></li>
+          <li class="is-done"><span class="step">3</span><strong>先知</strong><em>已完成</em></li>
+          <li><span class="step">4</span><strong>中毒检查</strong><em>待处理</em></li>
+          <li><span class="step">5</span><strong>刺客</strong><em>待处理</em></li>
+          <li><span class="step">6</span><strong>占卜师</strong><em>待处理</em></li>
+        </ol>
+        <div class="hud-side-actions">
+          <button type="button" class="hud-btn ghost">跳过此角色</button>
+          <button type="button" class="hud-btn primary">标记已完成</button>
+        </div>
+      </aside>
+
+      <section class="hud-center" aria-label="当前裁决卡">
+        <div class="hud-flowline" aria-label="当前流程">
+          <span class="done">开始夜晚</span>
+          <span class="active">等待行动</span>
+          <span>整理结果</span>
+          <span>进入白天</span>
+        </div>
+
+        <article class="hud-ruling-card">
+          <div class="hud-card-header">
+            <div class="hud-role-token" aria-hidden="true">♛</div>
+            <div>
+              <p class="hud-kicker">当前处理</p>
+              <h2>恶魔伪装</h2>
+              <p>你知道小恶魔是谁。你伪装成这个角色。</p>
+            </div>
+            <span class="hud-private">仅说书人可见</span>
+          </div>
+
+          <div class="hud-ruling-grid">
+            <section class="hud-choice-block">
+              <h3>选择目标玩家</h3>
+              <p>候选玩家 · 当前行动者为 12 号</p>
+              <div class="hud-player-grid">
+                <button type="button"><span>1</span><strong>阿狸</strong><em>存活</em></button>
+                <button type="button"><span>2</span><strong>小葵</strong><em>存活</em></button>
+                <button type="button" class="is-selected"><span>3</span><strong>老橙</strong><em>目标</em></button>
+                <button type="button"><span>4</span><strong>小蓝</strong><em>存活</em></button>
+                <button type="button"><span>5</span><strong>伊莎贝拉</strong><em>存活</em></button>
+                <button type="button"><span>6</span><strong>乔纳斯</strong><em>存活</em></button>
+                <button type="button"><span>7</span><strong>老白</strong><em>存活</em></button>
+                <button type="button" class="is-dead"><span>8</span><strong>小绿</strong><em>死亡</em></button>
+                <button type="button"><span>9</span><strong>小粉</strong><em>存活</em></button>
+                <button type="button"><span>10</span><strong>阿飞</strong><em>存活</em></button>
+                <button type="button"><span>11</span><strong>莫丽</strong><em>存活</em></button>
+                <button type="button" class="is-actor"><span>12</span><strong>贝拉</strong><em>行动者</em></button>
+              </div>
+            </section>
+
+            <aside class="hud-result-preview" aria-label="结果预览">
+              <h3>结果预览</h3>
+              <div class="hud-result-row"><span>输入来源</span><strong>玩家提交</strong></div>
+              <div class="hud-result-row"><span>当前选择</span><strong>3 号 老橙</strong></div>
+              <div class="hud-result-row warn"><span>冲突提示</span><strong>可能受中毒影响</strong></div>
+              <div class="hud-notes">
+                <strong>说书人备注</strong>
+                <p>这里记录本步观察到的线索、异常或需要复盘的事项。</p>
+              </div>
+            </aside>
+          </div>
+        </article>
+      </section>
+
+      <aside class="hud-panel hud-right" aria-label="结果与审计">
+        <div class="hud-panel-title">
+          <span>夜晚结果</span>
+          <strong>3 待确认</strong>
+        </div>
+        <div class="hud-result-stack">
+          <article class="pending">
+            <h3>5 号 魔香师 → 3 号 老橙</h3>
+            <p>结果可能不准确，已标记中毒影响。</p>
+            <div><button type="button">确认</button><button type="button">编辑</button><button type="button">忽略</button></div>
+          </article>
+          <article class="pending">
+            <h3>7 号 守护人 → 9 号 小粉</h3>
+            <p>存在多重信息冲突，需人工确认。</p>
+            <div><button type="button">确认</button><button type="button">编辑</button><button type="button">忽略</button></div>
+          </article>
+          <article class="done">
+            <h3>4 号 猎人 → 自己</h3>
+            <p>猎人选择开枪，结果有效。</p>
+          </article>
+        </div>
+        <div class="hud-checklist">
+          <h3>进入白天前检查</h3>
+          <p>✓ 所有行动处理完毕</p>
+          <p>✓ 死亡与中毒已更新</p>
+          <p>! 公开信息仍需确认</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="hud-commandbar" aria-label="底部命令栏">
+      <button type="button" class="confirm">确认当前结果</button>
+      <button type="button">下一条待办</button>
+      <button type="button">手动新增结果</button>
+      <button type="button" class="danger">清空本夜草稿</button>
+      <button type="button" class="ghost">关闭面板</button>
+    </footer>
+  </main>
+</body>
+</html>

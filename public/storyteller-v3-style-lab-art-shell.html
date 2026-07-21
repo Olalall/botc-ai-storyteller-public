@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V3 Style Lab · Art Shell</title>
+  <link rel="stylesheet" href="/css/storyteller-v3/style-lab-art-shell.css">
+</head>
+<body>
+  <main class="art-shell" aria-label="V3 高质感美术壳原型">
+    <header class="art-top" aria-label="局面">
+      <section class="art-brand">
+        <span aria-hidden="true">☾</span>
+        <div>
+          <h1>说书人辅助工具 · V3</h1>
+          <p>第 1 夜</p>
+        </div>
+      </section>
+      <section class="art-stats">
+        <b>AUQJQ</b>
+        <b>12/12</b>
+        <b>存活 10</b>
+        <b>待确认 3</b>
+      </section>
+      <nav class="art-tools" aria-label="工具">
+        <button type="button">公告</button>
+        <button type="button">日记</button>
+        <button type="button">设置</button>
+      </nav>
+    </header>
+
+    <section class="art-table" aria-label="夜晚裁决">
+      <aside class="art-scroll art-left" aria-label="夜晚顺序">
+        <h2>顺序</h2>
+        <button type="button" class="active">1 恶魔</button>
+        <button type="button">2 守护</button>
+        <button type="button">3 先知</button>
+        <button type="button">4 毒</button>
+      </aside>
+
+      <section class="art-grimoire" aria-label="魔典">
+        <div class="art-token seat-1 alive"><span>1</span><strong>阿狸</strong></div>
+        <div class="art-token seat-2 alive"><span>2</span><strong>小葵</strong></div>
+        <button type="button" class="art-token seat-3 target"><span>3</span><strong>老橙</strong></button>
+        <div class="art-token seat-4 alive"><span>4</span><strong>小蓝</strong></div>
+        <div class="art-token seat-5 alive"><span>5</span><strong>伊莎</strong></div>
+        <div class="art-token seat-6 alive"><span>6</span><strong>乔纳</strong></div>
+        <div class="art-token seat-7 alive"><span>7</span><strong>老白</strong></div>
+        <div class="art-token seat-8 dead"><span>8</span><strong>小绿</strong></div>
+        <div class="art-token seat-9 alive"><span>9</span><strong>小粉</strong></div>
+        <div class="art-token seat-10 alive"><span>10</span><strong>阿飞</strong></div>
+        <div class="art-token seat-11 alive"><span>11</span><strong>莫丽</strong></div>
+        <button type="button" class="art-token seat-12 actor"><span>12</span><strong>贝拉</strong></button>
+
+        <article class="art-card" aria-label="当前裁决">
+          <div class="art-card-mark" aria-hidden="true">♛</div>
+          <p>当前</p>
+          <h2>恶魔伪装</h2>
+          <dl>
+            <div><dt>行动者</dt><dd>12 贝拉</dd></div>
+            <div><dt>目标</dt><dd>3 老橙</dd></div>
+          </dl>
+          <div class="art-card-tags">
+            <span>玩家提交</span>
+            <span>待确认</span>
+            <span>私密</span>
+          </div>
+        </article>
+      </section>
+
+      <aside class="art-scroll art-right" aria-label="结果">
+        <h2>待确认</h2>
+        <button type="button" class="warn"><small>魔香师</small><strong>5 → 3</strong><em>中毒</em></button>
+        <button type="button"><small>守护人</small><strong>7 → 9</strong><em>确认</em></button>
+        <button type="button" class="ok"><small>猎人</small><strong>4 → 自己</strong><em>有效</em></button>
+      </aside>
+    </section>
+
+    <footer class="art-actions" aria-label="主操作">
+      <button type="button" class="primary">确认结果</button>
+      <button type="button">下一位</button>
+      <button type="button" class="ghost">详情</button>
+    </footer>
+  </main>
+</body>
+</html>

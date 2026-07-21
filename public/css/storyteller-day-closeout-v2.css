@@ -1,0 +1,76 @@
+/* V2.5 day closeout: an opaque single-focus confirmation surface. */
+#day-closeout-modal {
+  z-index: 120;
+  background: rgba(0, 0, 0, 0.84);
+  backdrop-filter: blur(2px);
+}
+
+#day-closeout-modal.open,
+#day-closeout-modal.open .modal {
+  animation: none !important;
+}
+
+#day-closeout-modal.open .modal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+#day-closeout-modal .compact-modal {
+  width: min(660px, calc(100vw - 32px));
+  border: 1px solid rgba(222, 178, 102, 0.58);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #21140d, #0f0906);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.9);
+}
+
+#day-closeout-modal .modal-header {
+  position: relative;
+  background: #160d08;
+}
+
+#day-closeout-modal .modal-body {
+  display: grid;
+  gap: 16px;
+}
+
+#day-closeout-modal #day-closeout-summary {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid rgba(222, 178, 102, 0.3);
+  border-radius: 10px;
+  background: #120b07;
+  color: #f7e5bb;
+  line-height: 1.7;
+}
+
+#day-closeout-modal .modal-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 10px;
+}
+
+#day-closeout-modal .modal-actions .layout-control-button {
+  min-height: 46px;
+  border: 1px solid rgba(222, 178, 102, 0.42);
+  background: #3d2818;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32);
+}
+
+#day-closeout-modal .modal-actions .is-flow-primary {
+  border-color: rgba(245, 207, 124, 0.68);
+  background: #6b4420;
+}
+
+@media (max-width: 560px) {
+  #day-closeout-modal {
+    padding: 12px;
+  }
+
+  #day-closeout-modal .compact-modal {
+    width: 100%;
+  }
+
+  #day-closeout-modal .modal-actions {
+    grid-template-columns: 1fr;
+  }
+}
