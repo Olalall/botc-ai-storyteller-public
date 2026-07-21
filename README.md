@@ -1,7 +1,7 @@
 # BOTC AI Storyteller Assistant
 
 > Unofficial local-first storyteller assistant for **Blood on the Clocktower**.
-> 非官方《血染钟楼》本地说书人辅助工具：开房、座位、发身份、夜晚候选、投票和复盘，都集中在一个浏览器工作台里。
+> 非官方《血染钟楼》本地说书人辅助工具：开房、座位、发身份、夜晚技能结果整理/结算候选、投票和复盘，都集中在一个浏览器工作台里。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
@@ -22,12 +22,12 @@ It is designed for in-person or LAN groups that want one browser tool to manage:
 - storyteller room creation and player seating;
 - script selection, setup, and identity deal flow;
 - private player identity delivery on phones;
-- night order, player submissions, and storyteller-reviewed candidates;
+- night order, player submissions, rule-assisted skill result candidates, and storyteller-reviewed settlement;
 - nominations, votes, executions, day/night flow, and game-end review;
 - imported/community scripts with manual review boundaries.
 
 **It is not an official TPI product, not a replacement for the official app, and not a fully autonomous rules engine.**
-AI and rule automation only produce drafts/candidates. Any action that changes authoritative game state remains behind storyteller confirmation.
+AI and rule automation can organize submissions and generate skill-result settlement candidates, but they do not become the final judge. Any action that changes authoritative game state remains behind storyteller confirmation.
 
 ## 为什么做这个？
 
@@ -92,10 +92,10 @@ More screenshots, generation notes, and coverage map: [docs/SCREENSHOTS.md](docs
 | Storyteller desk | Grimoire-style browser UI, room creation, seating, state panel, night/day workflow |
 | Player mobile view | Join by room code, claim seat, receive identity, read private/public information |
 | Setup and deal | Generate setup candidates, confirm setup, send identities, lock setup after deal |
-| Night flow | Night order, role prompts, player submissions, candidate review, manual ruling gates |
+| Night skill settlement | Night order, role prompts, player submissions, automatic candidate settlement, storyteller review, manual ruling gates |
 | Day and voting | Nomination, vote tracking, execution confirmation, day/night transition support |
 | Role library | Built-in role reference panel with script tabs and local ability-note edits |
-| AI boundary | AI produces draft candidates only; state changes require storyteller confirmation |
+| Rule/AI boundary | Rule automation and AI produce settlement drafts/candidates only; state changes require storyteller confirmation |
 | Script support | Trouble Brewing, Bad Moon Rising, Sects & Violets, Catfishing, and reviewed imports |
 | Local-first runtime | Runs on one computer; phones/tablets join through LAN URL |
 
@@ -140,10 +140,11 @@ flowchart LR
   D --> E[Storyteller confirms setup]
   E --> F[Deal identities]
   F --> G[Night order and submissions]
-  G --> H[Storyteller confirms results]
-  H --> I[Day nominations and votes]
-  I --> J[Execution / no execution]
-  J --> K[Next night or game review]
+  G --> H[Generate skill result candidates]
+  H --> I[Storyteller confirms / edits settlement]
+  I --> J[Day nominations and votes]
+  J --> K[Execution / no execution]
+  K --> L[Next night or game review]
 ```
 
 ## Project docs
@@ -199,7 +200,7 @@ The verification script starts a local server, checks the storyteller/player pag
 
 - Broader real-table playtesting.
 - Cleaner custom script import/review workflow.
-- More structured rules-candidate explanations.
+- More structured skill-result settlement explanations: why a result candidate was generated, what must still be confirmed, and which edge cases need manual ruling.
 - More screenshots and short demo videos.
 - Keep role icons as a generated/downloaded local cache instead of committing them to the repo.
 - Stronger separation between source code license and third-party/game IP assets.

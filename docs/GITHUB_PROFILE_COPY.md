@@ -2,9 +2,9 @@
 
 ## About / 简介
 
-Unofficial local-first storyteller assistant for Blood on the Clocktower: room setup, player mobile view, setup/deal, night candidates, voting, and review.
+Unofficial local-first storyteller assistant for Blood on the Clocktower: room setup, player mobile view, setup/deal, automatic skill-result settlement candidates, voting, and review.
 
-非官方《血染钟楼》本地说书人辅助工具：开房、玩家手机端、配板发身份、夜晚候选、提名投票和复盘。
+非官方《血染钟楼》本地说书人辅助工具：开房、玩家手机端、配板发身份、夜晚技能结果结算候选、提名投票和复盘。
 
 ## Website
 

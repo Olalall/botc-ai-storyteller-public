@@ -23,7 +23,7 @@ Covers: welcome → menu → room lobby → script switch → setup/deal → nig
 | `storyteller-setup-deal.png` | Setup candidate generation, storyteller confirmation, demon bluff/private info preview |
 | `storyteller-deal-confirm.png` | Final confirmation before private identities are sent |
 | `player-identity-receipt.png` | Player mobile receipt after identity delivery; player sees only their own PlayerView |
-| `storyteller-night-flow.png` | Night order, current role, candidate/result review and storyteller confirmation boundary |
+| `storyteller-night-flow.png` | Night order, current role, automatic skill-result candidate settlement, result review and storyteller confirmation boundary |
 | `storyteller-day-vote.png` | Nomination, vote threshold, vote cards, execution confirmation |
 | `storyteller-role-library.png` | Role/script reference library, role icons, ability text and local notes entry |
 | `storyteller-private-message.png` | Storyteller private-message/info delivery panel |
@@ -92,7 +92,7 @@ Shows that the player receives only their own identity and allowed private/publi
 
 ![Night flow](images/storyteller-night-flow.png)
 
-Shows night order, player submissions, current role handling, candidate/result review, and operation log.
+Shows night order, player submissions, current role handling, automatic skill-result candidate settlement, candidate/result review, and operation log.
 
 ### 11. Day vote
 
@@ -116,7 +116,7 @@ Shows storyteller-controlled private information delivery. This is useful for re
 
 ![Manual storyteller tool](images/storyteller-manual-tool.png)
 
-Shows manual controls for situations where a human ruling is required instead of automatic state mutation.
+Shows manual controls for situations where a human ruling is required instead of accepting automatic settlement candidates.
 
 ### 15. History log
 
