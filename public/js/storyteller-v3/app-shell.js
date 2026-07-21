@@ -34,7 +34,7 @@ function renderTopBar(state) {
       <div class="stv3-brand">
         <div class="stv3-brand-mark">☾</div>
         <div>
-          <h1 class="stv3-title">说书人辅助工具 · V3</h1>
+          <h1 class="stv3-title">AI 说书人副驾驶 · V3</h1>
           <p class="stv3-subtitle">一个主流程、一个状态来源、一个当前工作台。</p>
         </div>
       </div>

@@ -10,7 +10,7 @@
 [![Unofficial](https://img.shields.io/badge/BOTC-Unofficial%20fan%20tool-red.svg)](#legal--ip-notice)
 
 <p align="center">
-  <img src="docs/images/storyteller-desktop.png" alt="Unofficial storyteller assistant welcome screen" width="78%">
+  <img src="docs/images/storyteller-desktop.png" alt="Unofficial AI storyteller co-pilot welcome screen" width="78%">
 </p>
 
 ## What is this?

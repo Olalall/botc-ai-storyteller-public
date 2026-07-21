@@ -1,7 +1,7 @@
 {
   "name": "botc-ai-storyteller-github-full",
   "version": "1.0.0",
-  "description": "Full runtime package for the unofficial BOTC AI storyteller assistant",
+  "description": "Full runtime package for the unofficial BOTC AI storyteller co-pilot",
   "license": "MIT",
   "main": "server.js",
   "scripts": {
