@@ -622,36 +622,6 @@
       border-style: dashed;
     }
 
-    .welcome-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 36px;
-      margin-top: 18px;
-      color: rgba(245, 245, 245, 0.62);
-      font-family: "Roboto Condensed", "Microsoft YaHei", sans-serif;
-      font-weight: 900;
-      font-size: clamp(18px, 1.6vw, 28px);
-      letter-spacing: 0;
-      text-shadow: 0 3px 3px #000;
-    }
-
-    .welcome-logo-img {
-      display: block;
-      height: auto;
-      opacity: 0.86;
-      filter: drop-shadow(0 3px 3px #000);
-      user-select: none;
-    }
-
-    .welcome-logo-img.pi {
-      width: clamp(205px, 16.5vw, 268px);
-    }
-
-    .welcome-logo-img.gstone {
-      width: clamp(118px, 9.2vw, 154px);
-    }
-
     .right-menu {
       position: absolute;
       z-index: 75;
@@ -9777,17 +9747,6 @@
       .welcome-shortcuts {
         font-size: 18px;
       }
-      .welcome-logos {
-        gap: 18px;
-        margin-top: 16px;
-        font-size: 15px;
-      }
-      .welcome-logo-img.pi {
-        width: 160px;
-      }
-      .welcome-logo-img.gstone {
-        width: 96px;
-      }
       .town-title {
         font-size: 13px;
         line-height: 1.05;
@@ -11008,10 +10967,6 @@
         font-size: clamp(25px, 1.62vw, 30px);
       }
 
-      .welcome-logos {
-        margin-top: 18px;
-        gap: 42px;
-      }
     }
 
     #role-select-modal.overlay,
@@ -11459,9 +11414,6 @@
         min-height: 44px;
       }
 
-      .welcome-logos {
-        margin-top: 10px;
-      }
     }
 
     @media (max-width: 820px) {
@@ -11545,9 +11497,6 @@
         margin-top: 6px;
       }
 
-      .welcome-logos {
-        margin-top: 12px;
-      }
     }
     /* UI polish pass: role/bluff pickers, reminders, review readability. */
     #role-select-modal.overlay,
@@ -15681,11 +15630,11 @@
       </div>
     </div>
 
-    <section id="welcome-screen" class="welcome-screen open" aria-label="官方魔典欢迎页">
+    <section id="welcome-screen" class="welcome-screen open" aria-label="非官方说书人辅助工具欢迎页">
       <div class="welcome-emblem" aria-hidden="true"></div>
       <div class="welcome-card">
         <div class="welcome-line">亲爱的玩家 欢迎使用</div>
-        <div class="welcome-title">染·钟楼谜团官方魔典</div>
+        <div class="welcome-title">非官方说书人辅助工具</div>
         <div class="welcome-menu-copy">
           <span>点击右上角</span>
           <button id="btn-welcome-menu" class="welcome-menu-pill" type="button">
@@ -15732,13 +15681,9 @@
           </div>
         </div>
       </div>
-      <div class="welcome-logos" aria-hidden="true">
-        <img class="welcome-logo-img pi" src="clocktower-assets/web/welcome-logo-pi.png" alt="">
-        <img class="welcome-logo-img gstone" src="clocktower-assets/web/welcome-logo-gstone.png" alt="">
-      </div>
     </section>
 
-    <section class="board-shell" aria-label="官方式中央魔典">
+    <section class="board-shell" aria-label="魔典式说书人工作台">
       <div id="storyteller-room-ribbon" class="room-ribbon" hidden>
         <b id="room-ribbon-id">房间 --</b>
         <span id="room-ribbon-password">密令 --</span>
@@ -27886,7 +27831,7 @@
           createAiCopilotHumanTakeoverCheck('structured-output', '结构化输出', 'structured-output-closed', '不接收外部裁决结果。'),
           createAiCopilotHumanTakeoverCheck('hidden-info', '隐藏信息', 'storyteller-local-only', '隐藏信息只留在说书人本地视图。'),
           createAiCopilotHumanTakeoverCheck('decision-owner', '裁决归属', 'storyteller-decision-owner', '所有生效裁决仍归说书人确认。'),
-          createAiCopilotHumanTakeoverCheck('live-game', '现场推进', 'manual-grimoire-controls', '现场继续使用现有官方魔典操作。')
+          createAiCopilotHumanTakeoverCheck('live-game', '现场推进', 'manual-grimoire-controls', '现场继续使用现有说书人工作台操作。')
         ]
       };
     }
@@ -28013,7 +27958,7 @@
           playerSeats: unassignedSeats,
           title: '身份未满',
           summary: `还有 ${playerCount - assignedCount} 个座位未分配角色，不能进入自动建议结算。`,
-          suggestedAction: '先通过官方魔典角色选择补齐身份，再重新刷新本地检查。',
+          suggestedAction: '先通过说书人工作台角色选择补齐身份，再重新刷新本地检查。',
           evidenceRefs: [
             createAiCopilotEvidenceRef('state', 'players.assignedRoles', `已分配 ${assignedCount}/${playerCount}`),
             createAiCopilotEvidenceRef('state', 'players.unassignedSeats', `空座位 ${unassignedSeats.join(', ') || '无'}`)
@@ -28086,7 +28031,7 @@
           requiresStoryteller: false,
           title: '暂无阻塞',
           summary: '当前只读检查没有发现必须裁决的结构性问题。',
-          suggestedAction: '继续按官方魔典流程推进；需要状态变化时仍走现有魔典操作。',
+          suggestedAction: '继续按说书人工作台流程推进；需要状态变化时仍走现有魔典操作。',
           evidenceRefs: [
             createAiCopilotEvidenceRef('state', 'local-check.timestamp', new Date().toLocaleTimeString())
           ].concat(historyEvidence)
@@ -28734,7 +28679,7 @@
         setRoomStatus('请直接点击圆桌上的玩家 token 修改配板角色。', 'ok');
       });
 
-      // 说书人工具入口暂不暴露；官方魔典 UI 锁定后再接入。
+      // 说书人工具入口暂不暴露；说书人工作台 UI 锁定后再接入。
       const seatCountGrid = document.getElementById('seat-count-grid');
       if (seatCountGrid) {
         seatCountGrid.addEventListener('click', e => {

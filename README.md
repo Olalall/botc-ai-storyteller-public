@@ -10,11 +10,7 @@
 [![Unofficial](https://img.shields.io/badge/BOTC-Unofficial%20fan%20tool-red.svg)](#legal--ip-notice)
 
 <p align="center">
-  <img src="docs/images/storyteller-desktop.png" alt="Storyteller desktop view" width="78%">
-</p>
-
-<p align="center">
-  <img src="docs/images/player-mobile.png" alt="Player mobile view" width="260">
+  <img src="docs/images/storyteller-desktop.png" alt="Unofficial storyteller assistant welcome screen" width="78%">
 </p>
 
 ## What is this?
@@ -41,6 +37,30 @@ AI and rule automation only produce drafts/candidates. Any action that changes a
 
 > **AI 只起草，规则只建议，说书人最终确认。**
 
+## Screenshots / 功能演示
+
+More screenshots and notes: [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md)
+
+| Welcome | Room and seats |
+| --- | --- |
+| ![Welcome](docs/images/storyteller-welcome.png) | ![Room lobby](docs/images/storyteller-room-lobby.png) |
+
+| Setup and deal | Send identities |
+| --- | --- |
+| ![Setup and deal](docs/images/storyteller-setup-deal.png) | ![Deal confirmation](docs/images/storyteller-deal-confirm.png) |
+
+| Night flow | Day vote |
+| --- | --- |
+| ![Night flow](docs/images/storyteller-night-flow.png) | ![Day vote](docs/images/storyteller-day-vote.png) |
+
+| Role library | AI boundary |
+| --- | --- |
+| ![Role library](docs/images/storyteller-role-library.png) | ![AI boundary](docs/images/storyteller-ai-boundary.png) |
+
+<p align="center">
+  <img src="docs/images/player-mobile.png" alt="Player mobile join view" width="260">
+</p>
+
 ## Highlights / 核心功能
 
 | Area | What it does |
@@ -50,17 +70,10 @@ AI and rule automation only produce drafts/candidates. Any action that changes a
 | Setup and deal | Generate setup candidates, confirm setup, send identities, lock setup after deal |
 | Night flow | Night order, role prompts, player submissions, candidate review, manual ruling gates |
 | Day and voting | Nomination, vote tracking, execution confirmation, day/night transition support |
-| Script support | Trouble Brewing, Bad Moon Rising, Sects & Violets, Catfishing, and reviewed imports |
+| Role library | Built-in role reference panel with script tabs and local ability-note edits |
 | AI boundary | AI produces draft candidates only; state changes require storyteller confirmation |
+| Script support | Trouble Brewing, Bad Moon Rising, Sects & Violets, Catfishing, and reviewed imports |
 | Local-first runtime | Runs on one computer; phones/tablets join through LAN URL |
-
-## Screenshots
-
-More screenshots and notes: [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md)
-
-| Storyteller desktop | Player mobile |
-| --- | --- |
-| ![Storyteller desktop](docs/images/storyteller-desktop.png) | ![Player mobile](docs/images/player-mobile.png) |
 
 ## Quick start
 
@@ -114,6 +127,7 @@ flowchart LR
 - [Project overview / 项目说明书](docs/PROJECT_OVERVIEW.md)
 - [Feature guide / 核心功能说明](docs/FEATURES.md)
 - [Screenshots](docs/SCREENSHOTS.md)
+- [Human changelog / 给非开发者看的迭代日志](docs/HUMAN_CHANGELOG.md)
 - [GitHub profile copy](docs/GITHUB_PROFILE_COPY.md)
 - [Third-party notices](docs/THIRD_PARTY_NOTICES.md)
 

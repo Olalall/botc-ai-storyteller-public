@@ -1,9 +1,9 @@
 {
   "schemaVersion": "botc.github-full-upload.v2",
-  "generatedAt": "2026-07-21T16:35:00+08:00",
+  "generatedAt": "2026-07-21T17:35:00+08:00",
   "outputDir": "dist/repo-polish",
-  "zipPath": "dist/botc-ai-storyteller-public-polished.zip",
-  "fileCount": 144,
+  "zipPath": "dist/botc-ai-storyteller-public-dynamic-icons.zip",
+  "fileCount": 152,
   "testsDirectoryRemoved": true,
   "roleIconsCommitted": false,
   "roleIconDownloadScript": "scripts/download-botc-icons.mjs",
@@ -18,7 +18,8 @@
     "generated reports",
     "game records",
     "backups",
-    "downloaded role icon cache"
+    "downloaded role icon cache",
+    "PI/Gstone logo files"
   ],
   "includedTopLevel": [
     ".env.example",
@@ -41,5 +42,5 @@
     "server.js",
     "start.sh"
   ],
-  "totalBytes": 15331669
+  "totalBytes": 23977266
 }
