@@ -1,4 +1,4 @@
-MIT License
+# MIT License
 
 Copyright (c) 2026 BOTC AI Storyteller contributors
 
@@ -20,15 +20,44 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Additional IP notice
---------------------
-This license applies only to this repository's original source code and
-project documentation authored by its contributors. It does not grant rights
-to Blood on the Clocktower, its characters, scripts, names, artwork, rule
-text, translations, or other intellectual property owned by Steven Medway,
-The Pandemonium Institute, or third parties. Imported official/community
-script data and references remain subject to their original source terms.
+---
 
-This is an unofficial fan-made tool. It is not affiliated with, endorsed by,
-sponsored by, or officially licensed by The Pandemonium Institute, Steven
-Medway, or the creators of Blood on the Clocktower.
+## Intellectual Property Notice
+
+**This license applies only to this project's original source code and
+documentation.** It does not grant any rights to third-party content
+referenced or included in this repository.
+
+### Not Covered by This License
+
+- **Blood on the Clocktower** intellectual property, including but not limited to:
+  - Character names, abilities, and artwork
+  - Script contents and rules
+  - Night order sequences and reminder text
+  - Official branding and trademarks
+
+- **Official data** sourced from `release.botc.app` or similar third-party sources
+
+- **Community scripts** (e.g., Catfishing by Emily), which remain subject to
+  their respective authors' terms
+
+### Ownership
+
+Blood on the Clocktower is a trademark of Steven Medway and
+The Pandemonium Institute. This project is:
+
+- **Not** affiliated with, endorsed by, or sponsored by The Pandemonium Institute
+- **Not** officially licensed to use Blood on the Clocktower intellectual property
+- A **fan-made assistant tool** intended for personal use
+
+### Before Redistributing
+
+If you fork, modify, or redistribute this project publicly:
+
+1. Keep this IP notice and license intact
+2. Remove or replace any unlicensed official/third-party content
+3. Obtain necessary permissions from rights holders if including additional IP
+4. Do not claim official endorsement or affiliation
+
+For questions about rights usage, contact The Pandemonium Institute directly
+or the respective community script authors.
